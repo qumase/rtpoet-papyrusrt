@@ -1,0 +1,1720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:RTCppProperties="http://www.eclipse.org/papyrus/umlrt/cppproperties" xmlns:UMLRTStateMachines="http://www.eclipse.org/papyrus/umlrt/statemachine" xmlns:UMLRealTime="http://www.eclipse.org/papyrus/umlrt" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_e0-NsN7dEei0INX0aX4iTw" name="BankATM">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_e0-Nsd7dEei0INX0aX4iTw" source="http://www.eclipse.org/papyrus-rt/language/1.0.0">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_e0-Nst7dEei0INX0aX4iTw" key="language" value="umlrt-cpp"/>
+    </eAnnotations>
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_SnBNoN7eEei0INX0aX4iTw" source="UMLRT_Default_top">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_SnCbwN7eEei0INX0aX4iTw" key="top_name" value="Top"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="_hisYMN7dEei0INX0aX4iTw" name="Top" isActive="true">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_PJv1gN7eEei0INX0aX4iTw" name="bank" visibility="public" type="_jlsxwN7dEei0INX0aX4iTw" isOrdered="true" aggregation="composite"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_QRcdYN7eEei0INX0aX4iTw" name="atm" visibility="public" type="_llEogN7dEei0INX0aX4iTw" isOrdered="true" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LvQjAGO6EeqNnbEuQmCe8A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kzfcgGO6EeqNnbEuQmCe8A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ZE4AsGVkEeqL3dOaD326aA" name="testHarness" visibility="protected" type="_R2Zn0GVkEeqL3dOaD326aA" isOrdered="true" aggregation="composite"/>
+      <ownedConnector xmi:type="uml:Connector" xmi:id="__FtDsGPIEeqNnbEuQmCe8A" name="RTConnector1">
+        <end xmi:type="uml:ConnectorEnd" xmi:id="__Fu44GPIEeqNnbEuQmCe8A" partWithPort="_QRcdYN7eEei0INX0aX4iTw" role="_nFWdkN7fEei0INX0aX4iTw"/>
+        <end xmi:type="uml:ConnectorEnd" xmi:id="__Fvf8GPIEeqNnbEuQmCe8A" partWithPort="_PJv1gN7eEei0INX0aX4iTw" role="_h94NcN7fEei0INX0aX4iTw"/>
+      </ownedConnector>
+      <ownedConnector xmi:type="uml:Connector" xmi:id="_IYoQYGVlEeqL3dOaD326aA" name="RTConnector2">
+        <end xmi:type="uml:ConnectorEnd" xmi:id="_IYrTsGVlEeqL3dOaD326aA" partWithPort="_ZE4AsGVkEeqL3dOaD326aA" role="_1ULvEGVkEeqL3dOaD326aA"/>
+        <end xmi:type="uml:ConnectorEnd" xmi:id="_IYrTsWVlEeqL3dOaD326aA" partWithPort="_QRcdYN7eEei0INX0aX4iTw" role="__ZkDoGVkEeqL3dOaD326aA"/>
+      </ownedConnector>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_jlsxwN7dEei0INX0aX4iTw" name="Bank" classifierBehavior="_ctp_EN7hEei0INX0aX4iTw" isActive="true">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_h94NcN7fEei0INX0aX4iTw" name="bankPort" visibility="public" type="_prNiAN7eEei0INX0aX4iTw" isOrdered="true" aggregation="composite" isBehavior="true" isService="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WqsV0GO6EeqNnbEuQmCe8A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WrAe4GO6EeqNnbEuQmCe8A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_KCk1cN7gEei0INX0aX4iTw" name="log" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+        <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6kIb0IeXEeSVyrlWP4nYew"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_L6NsgN7gEei0INX0aX4iTw" name="timing" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+        <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_MxQZgGXsEeS_4daqvwyFrg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="__8A6QGFPEeqlw_kCH9NTkw" name="balanceAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="__8A6QWFPEeqlw_kCH9NTkw" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="__8BhUGFPEeqlw_kCH9NTkw" name="requestType">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="__8BhUWFPEeqlw_kCH9NTkw" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="__8CIYGFPEeqlw_kCH9NTkw" name="withdrawalAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="__8CIYWFPEeqlw_kCH9NTkw" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="__8CvcGFPEeqlw_kCH9NTkw" name="depositAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="__8CvcWFPEeqlw_kCH9NTkw" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="__8DWgGFPEeqlw_kCH9NTkw" name="cashTransferAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="__8DWgWFPEeqlw_kCH9NTkw" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="__8IPAGFPEeqlw_kCH9NTkw" name="billAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="__8IPAWFPEeqlw_kCH9NTkw" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_RAXuIGGHEeqlw_kCH9NTkw" name="bankApproval">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_RAXuIWGHEeqlw_kCH9NTkw"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Jf2dQGYMEeqL3dOaD326aA" name="userID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_Jf2dQWYMEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_ctp_EN7hEei0INX0aX4iTw" name="SM" isReentrant="false">
+        <region xmi:type="uml:Region" xmi:id="_ctxT0N7hEei0INX0aX4iTw" name="Region">
+          <transition xmi:type="uml:Transition" xmi:id="_ct2MUd7hEei0INX0aX4iTw" name="Initial" source="_ctyh8N7hEei0INX0aX4iTw" target="_ct0-MN7hEei0INX0aX4iTw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_lD5RQN7hEei0INX0aX4iTw" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;------------> Initial transition taken in BANK \n&quot;);
+
+</body>
+            </effect>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_LJqTIGC7EeqWrtJZaD5zuw" name="processAccountBalanceInformationReq" kind="external" source="_ct0-MN7hEei0INX0aX4iTw" target="_ct0-MN7hEei0INX0aX4iTw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_jsLiMGIlEeqyifL-WDB23w" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;In [processAccountBalanceInformationReq] [BANK] request received at channel number [%i] \n&quot;, msg->sapIndex0_);
+std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+bankPort.bankReply(true).sendAt(msg->sapIndex0_);
+</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_YLwLMGGREeqsyahLzWi6Ow" event="_xMbQsN7eEei0INX0aX4iTw" port="_h94NcN7fEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_O5HAYGC7EeqWrtJZaD5zuw" name="processPayBillReq" kind="external" source="_ct0-MN7hEei0INX0aX4iTw" target="_ct0-MN7hEei0INX0aX4iTw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_lCRLYGIlEeqyifL-WDB23w" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;In [processPayBillReq] [BANK], userID:[%i] ,billAmount:[%i], balanceAmount:[%i] request received at channel number [%i] \n&quot;, userID, billAmount,balanceAmount,msg->sapIndex0_);
+std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+int tmp_balanceAmount = 0;
+
+if ( userMap.find(userID) == userMap.end() ) {
+  log.show(&quot;\n>>>> Welcome you are our new customer! \n&quot;); 
+  userMap[userID] = balanceAmount;
+  tmp_balanceAmount = balanceAmount;
+} else {
+  log.show(&quot;\n>>>> Welcome back client# %i! \n&quot;,userID); 
+  tmp_balanceAmount = userMap[userID];
+}
+
+
+
+
+if (billAmount > tmp_balanceAmount)
+	bankPort.bankReply(false).sendAt(msg->sapIndex0_);
+else{
+	bankPort.bankReply(true).sendAt(msg->sapIndex0_);
+	userMap[userID] = tmp_balanceAmount - billAmount;
+}
+
+log.show(&quot;New balanceAmount:[%i] for userID:[%i] \n&quot;, userMap[userID], userID);</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_aVb0gGGREeqsyahLzWi6Ow" event="_ZPlhMGFZEeqlw_kCH9NTkw" port="_h94NcN7fEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_SI7yYGC7EeqWrtJZaD5zuw" name="processWithdrawalReq" kind="external" source="_ct0-MN7hEei0INX0aX4iTw" target="_ct0-MN7hEei0INX0aX4iTw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_mLvU4GIlEeqyifL-WDB23w" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;In [processWithdrawalReq] [BANK], withdrawalAmount:[%i], balanceAmount:[%i] request received at channel number [%i] \n&quot;, withdrawalAmount,balanceAmount,msg->sapIndex0_);
+std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+int tmp_balanceAmount = 0;
+
+if ( userMap.find(userID) == userMap.end() ) {
+  log.show(&quot;\n>>>> Welcome you are our new customer! \n&quot;); 
+  userMap[userID] = balanceAmount;
+  tmp_balanceAmount = balanceAmount;
+} else {
+  log.show(&quot;\n>>>> Welcome back client# %i! \n&quot;,userID); 
+  tmp_balanceAmount = userMap[userID];
+}
+
+
+
+
+if (withdrawalAmount > tmp_balanceAmount)
+	bankPort.bankReply(false).sendAt(msg->sapIndex0_);
+else{
+	bankPort.bankReply(true).sendAt(msg->sapIndex0_);
+	userMap[userID] = tmp_balanceAmount - withdrawalAmount;
+}
+
+log.show(&quot;New balanceAmount:[%i] for userID:[%i] \n&quot;, userMap[userID], userID);</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_b_x2cGGREeqsyahLzWi6Ow" event="_JBqhEGFZEeqlw_kCH9NTkw" port="_h94NcN7fEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_UWkHkGC7EeqWrtJZaD5zuw" name="processDepositMoneyReq" kind="external" source="_ct0-MN7hEei0INX0aX4iTw" target="_ct0-MN7hEei0INX0aX4iTw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_njOFMGIlEeqyifL-WDB23w" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;In [processDepositMoneyReq] [BANK], depositAmount:[%i], balanceAmount:[%i] request received at channel number [%i] \n&quot;, depositAmount,balanceAmount,msg->sapIndex0_);
+std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+bankPort.bankReply(true).sendAt(msg->sapIndex0_);
+balanceAmount = balanceAmount + depositAmount;
+
+
+int tmp_balanceAmount = 0;
+
+if ( userMap.find(userID) == userMap.end() ) {
+  log.show(&quot;\n>>>> Welcome you are our new customer! \n&quot;); 
+  userMap[userID] = balanceAmount;
+  tmp_balanceAmount = balanceAmount;
+} else {
+  log.show(&quot;\n>>>> Welcome back client# %i! \n&quot;,userID); 
+  tmp_balanceAmount = userMap[userID];
+}
+
+
+userMap[userID] = tmp_balanceAmount + depositAmount;
+
+log.show(&quot;New balanceAmount:[%i] for userID:[%i] \n&quot;, userMap[userID], userID);</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_dm_E0GGREeqsyahLzWi6Ow" event="_gO_jUGFZEeqlw_kCH9NTkw" port="_h94NcN7fEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_V_In4GC7EeqWrtJZaD5zuw" name="processCashTransferReq" kind="external" source="_ct0-MN7hEei0INX0aX4iTw" target="_ct0-MN7hEei0INX0aX4iTw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_oo8-MGIlEeqyifL-WDB23w" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;In [processCashTransferReq] [BANK], cashTransferAmount:[%i], balanceAmount:[%i] request received at channel number [%i] \n&quot;, cashTransferAmount,balanceAmount,msg->sapIndex0_);
+std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+int tmp_balanceAmount = 0;
+
+if ( userMap.find(userID) == userMap.end() ) {
+  log.show(&quot;\n>>>> Welcome you are our new customer! \n&quot;); 
+  userMap[userID] = balanceAmount;
+  tmp_balanceAmount = balanceAmount;
+} else {
+  log.show(&quot;\n>>>> Welcome back client# %i! \n&quot;,userID); 
+  tmp_balanceAmount = userMap[userID];
+}
+
+
+if (cashTransferAmount > tmp_balanceAmount)
+	bankPort.bankReply(false).sendAt(msg->sapIndex0_);
+else{
+	bankPort.bankReply(true).sendAt(msg->sapIndex0_);
+	userMap[userID] = tmp_balanceAmount - cashTransferAmount;
+}
+
+log.show(&quot;New balanceAmount:[%i] for userID:[%i] \n&quot;, userMap[userID], userID);</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_er2bIGGREeqsyahLzWi6Ow" event="_lwQzgGFZEeqlw_kCH9NTkw" port="_h94NcN7fEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_ZIx5YGC7EeqWrtJZaD5zuw" name="processMakeLoanApplicationReq" kind="external" source="_ct0-MN7hEei0INX0aX4iTw" target="_ct0-MN7hEei0INX0aX4iTw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_pnC-IGIlEeqyifL-WDB23w" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;In [processMakeLoanApplicationReq] [BANK],balanceAmount:[%i] request received at channel number [%i] \n&quot;, balanceAmount,msg->sapIndex0_);
+std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+if (balanceAmount &lt; 50)
+	bankPort.bankReply(false).sendAt(msg->sapIndex0_);
+else
+	bankPort.bankReply(true).sendAt(msg->sapIndex0_);
+
+</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_gNsoYGGREeqsyahLzWi6Ow" event="_7RFQoGFZEeqlw_kCH9NTkw" port="_h94NcN7fEei0INX0aX4iTw"/>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_ctyh8N7hEei0INX0aX4iTw" name="initState" kind="initial"/>
+          <subvertex xmi:type="uml:State" xmi:id="_ct0-MN7hEei0INX0aX4iTw" name="Idle">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_jLtnoN7hEei0INX0aX4iTw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[Bank] in operation state \n&quot;);
+
+</body>
+            </entry>
+          </subvertex>
+        </region>
+      </ownedBehavior>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_llEogN7dEei0INX0aX4iTw" name="ATM" visibility="public" isActive="true">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_VxlsMN7eEei0INX0aX4iTw" name="controller" visibility="protected" type="_yimO4N7dEei0INX0aX4iTw" isOrdered="true" aggregation="composite"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_X7q-IN7eEei0INX0aX4iTw" name="cashDispenser" visibility="protected" type="_mugVwN7dEei0INX0aX4iTw" isOrdered="true" aggregation="composite"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_YnydQN7eEei0INX0aX4iTw" name="journalPrinter" visibility="protected" type="_08gFgN7dEei0INX0aX4iTw" isOrdered="true" aggregation="composite"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ZsNusN7eEei0INX0aX4iTw" name="pinPad" visibility="protected" type="_3eXlUN7dEei0INX0aX4iTw" isOrdered="true" aggregation="composite"/>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_nFWdkN7fEei0INX0aX4iTw" name="atmPort1" visibility="public" type="_prNiAN7eEei0INX0aX4iTw" isOrdered="true" aggregation="composite" isBehavior="false" isConjugated="true" isService="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_D_WmIGO8EeqNnbEuQmCe8A" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_D_yD8GO8EeqNnbEuQmCe8A" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="__ZkDoGVkEeqL3dOaD326aA" name="atmPort2" visibility="public" type="_mjwo4N7eEei0INX0aX4iTw" isOrdered="true" aggregation="composite" isBehavior="false" isConjugated="true" isService="true"/>
+      <ownedConnector xmi:type="uml:Connector" xmi:id="_Fx_xEN7gEei0INX0aX4iTw" name="RTConnector2">
+        <end xmi:type="uml:ConnectorEnd" xmi:id="_FyECgN7gEei0INX0aX4iTw" partWithPort="_VxlsMN7eEei0INX0aX4iTw" role="_y9wO8N7fEei0INX0aX4iTw"/>
+        <end xmi:type="uml:ConnectorEnd" xmi:id="_FyECgd7gEei0INX0aX4iTw" partWithPort="_X7q-IN7eEei0INX0aX4iTw" role="_3mdfcN7fEei0INX0aX4iTw"/>
+      </ownedConnector>
+      <ownedConnector xmi:type="uml:Connector" xmi:id="_GgDJ4N7gEei0INX0aX4iTw" name="RTConnector3">
+        <end xmi:type="uml:ConnectorEnd" xmi:id="_GgGNMN7gEei0INX0aX4iTw" partWithPort="_VxlsMN7eEei0INX0aX4iTw" role="_6Ht6QN7qEei0INX0aX4iTw"/>
+        <end xmi:type="uml:ConnectorEnd" xmi:id="_GgG0QN7gEei0INX0aX4iTw" partWithPort="_YnydQN7eEei0INX0aX4iTw" role="_7zPo8N7fEei0INX0aX4iTw"/>
+      </ownedConnector>
+      <ownedConnector xmi:type="uml:Connector" xmi:id="_HuiWQN7gEei0INX0aX4iTw" name="RTConnector4">
+        <end xmi:type="uml:ConnectorEnd" xmi:id="_HujkYN7gEei0INX0aX4iTw" partWithPort="_VxlsMN7eEei0INX0aX4iTw" role="_AfVjoN7rEei0INX0aX4iTw"/>
+        <end xmi:type="uml:ConnectorEnd" xmi:id="_HujkYd7gEei0INX0aX4iTw" partWithPort="_ZsNusN7eEei0INX0aX4iTw" role="_AiJBAN7gEei0INX0aX4iTw"/>
+      </ownedConnector>
+      <ownedConnector xmi:type="uml:Connector" xmi:id="_LZX0wGPJEeqNnbEuQmCe8A" name="RTConnector5">
+        <end xmi:type="uml:ConnectorEnd" xmi:id="_LZZp8GPJEeqNnbEuQmCe8A" partWithPort="_VxlsMN7eEei0INX0aX4iTw" role="_tdJGEN7fEei0INX0aX4iTw"/>
+        <end xmi:type="uml:ConnectorEnd" xmi:id="_LZZp8WPJEeqNnbEuQmCe8A" role="_nFWdkN7fEei0INX0aX4iTw"/>
+      </ownedConnector>
+      <ownedConnector xmi:type="uml:Connector" xmi:id="_hR7sQGVlEeqL3dOaD326aA" name="RTConnector6">
+        <end xmi:type="uml:ConnectorEnd" xmi:id="_hR-IgGVlEeqL3dOaD326aA" role="__ZkDoGVkEeqL3dOaD326aA"/>
+        <end xmi:type="uml:ConnectorEnd" xmi:id="_hR-IgWVlEeqL3dOaD326aA" partWithPort="_ZsNusN7eEei0INX0aX4iTw" role="_a-h0gGVlEeqL3dOaD326aA"/>
+      </ownedConnector>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_mugVwN7dEei0INX0aX4iTw" name="CashDispenser" classifierBehavior="_pvwmoN7lEei0INX0aX4iTw" isActive="true">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_3mdfcN7fEei0INX0aX4iTw" name="cashDispenserPort" visibility="public" type="_hr47AN7eEei0INX0aX4iTw" isOrdered="true" aggregation="composite" isBehavior="true" isConjugated="true" isService="true"/>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_Q5EzMN7gEei0INX0aX4iTw" name="log" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+        <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6kIb0IeXEeSVyrlWP4nYew"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_RZ_H4N7gEei0INX0aX4iTw" name="timing" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+        <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_MxQZgGXsEeS_4daqvwyFrg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ZNiz4GNIEeq-M-JEa9kXEw" name="local_withdrawalAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_ZNiz4WNIEeq-M-JEa9kXEw" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_J4xXYGNKEeq-M-JEa9kXEw" name="withdrawalAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_J4xXYWNKEeq-M-JEa9kXEw" value="0"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_pvwmoN7lEei0INX0aX4iTw" name="SM" isReentrant="false">
+        <region xmi:type="uml:Region" xmi:id="_pv7lwN7lEei0INX0aX4iTw" name="Region">
+          <transition xmi:type="uml:Transition" xmi:id="_pwCTcN7lEei0INX0aX4iTw" name="Initial" source="_pv9a8N7lEei0INX0aX4iTw" target="_pwAeQN7lEei0INX0aX4iTw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_mMtOcGNHEeq-M-JEa9kXEw" name="toCP1" kind="external" source="_RsXW4GNHEeq-M-JEa9kXEw" target="_ipMrcGNHEeq-M-JEa9kXEw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_BdbYMGNJEeq-M-JEa9kXEw" port="_RZ_H4N7gEei0INX0aX4iTw">
+              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_o4EBcGNHEeq-M-JEa9kXEw" name="toCB1" guard="_EviCIGNJEeq-M-JEa9kXEw" kind="external" source="_ipMrcGNHEeq-M-JEa9kXEw" target="_ZTUhMGNHEeq-M-JEa9kXEw">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_EviCIGNJEeq-M-JEa9kXEw">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_EviCIWNJEeq-M-JEa9kXEw">
+                <language>C++</language>
+                <body>return true;</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_wqNvIGNHEeq-M-JEa9kXEw" name="toCTB" guard="_FjB7oGNJEeq-M-JEa9kXEw" kind="external" source="_ipMrcGNHEeq-M-JEa9kXEw" target="_shC6UGNHEeq-M-JEa9kXEw">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_FjB7oGNJEeq-M-JEa9kXEw">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_FjCisGNJEeq-M-JEa9kXEw">
+                <language>C++</language>
+                <body>return false;</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_27RdgGNHEeq-M-JEa9kXEw" name="toCB2" kind="external" source="_shC6UGNHEeq-M-JEa9kXEw" target="_ZTUhMGNHEeq-M-JEa9kXEw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_Hr3QYGNJEeq-M-JEa9kXEw" port="_RZ_H4N7gEei0INX0aX4iTw">
+              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_8AmYkGNHEeq-M-JEa9kXEw" name="backToIdleState" kind="external" source="_ZTUhMGNHEeq-M-JEa9kXEw" target="_pwAeQN7lEei0INX0aX4iTw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_qkq3wGNIEeq-M-JEa9kXEw" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>cashDispenserPort.cashDispenserDone().send();</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_KrGBoGNJEeq-M-JEa9kXEw" port="_RZ_H4N7gEei0INX0aX4iTw">
+              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_By8xsGNIEeq-M-JEa9kXEw" name="toOB" kind="external" source="_lHDDYGNGEeq-M-JEa9kXEw" target="_8WJnQGNGEeq-M-JEa9kXEw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_53dsYGNIEeq-M-JEa9kXEw" port="_RZ_H4N7gEei0INX0aX4iTw">
+              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_Dhy5IGNIEeq-M-JEa9kXEw" name="toCO" kind="external" source="_8WJnQGNGEeq-M-JEa9kXEw" target="_RsXW4GNHEeq-M-JEa9kXEw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_ALxjEGNJEeq-M-JEa9kXEw" port="_RZ_H4N7gEei0INX0aX4iTw">
+              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_Ncr5sGOwEeqNnbEuQmCe8A" name="onCashout" kind="external" source="_pwAeQN7lEei0INX0aX4iTw" target="_lHDDYGNGEeq-M-JEa9kXEw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_P7p2gGOwEeqNnbEuQmCe8A" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>	log.show(&quot;[CashDispenser] cashOut message has arrived! \n&quot;);
+local_withdrawalAmount = withdrawalAmount;</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_RAKAcGOwEeqNnbEuQmCe8A" event="_6DTtoN7lEei0INX0aX4iTw" port="_3mdfcN7fEei0INX0aX4iTw"/>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_pv9a8N7lEei0INX0aX4iTw" name="initState" kind="initial"/>
+          <subvertex xmi:type="uml:State" xmi:id="_pwAeQN7lEei0INX0aX4iTw" name="Idle">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_r4o_QGhlEeqCstEjuI83oQ" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>	log.show(&quot;[CashDispenser] [IdleState]\n&quot;);</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_lHDDYGNGEeq-M-JEa9kXEw" name="calculateCash">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_46BMsGNIEeq-M-JEa9kXEw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>	log.show(&quot;[CashDispenser] [calculateCash]\n&quot;);
+timing.informIn(UMLRTTimespec(1,0),1);</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_8WJnQGNGEeq-M-JEa9kXEw" name="openBox">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_78opIGNIEeq-M-JEa9kXEw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>	log.show(&quot;[CashDispenser] [openBox]\n&quot;);
+timing.informIn(UMLRTTimespec(1,0),1);</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_RsXW4GNHEeq-M-JEa9kXEw" name="sendTheCashOut">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_9x8k8GNIEeq-M-JEa9kXEw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[CashDispenser] [sendTheCashOut]\n&quot;);
+timing.informIn(UMLRTTimespec(1,0),1);</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_ZTUhMGNHEeq-M-JEa9kXEw" name="closeBox">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_JdNSMGNJEeq-M-JEa9kXEw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>	log.show(&quot;[CashDispenser] [closeBox]\n&quot;);
+timing.informIn(UMLRTTimespec(1,0),1);</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_ipMrcGNHEeq-M-JEa9kXEw" name="cp1" kind="choice"/>
+          <subvertex xmi:type="uml:State" xmi:id="_shC6UGNHEeq-M-JEa9kXEw" name="cashBacktoBox">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_HPoAUGNJEeq-M-JEa9kXEw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>timing.informIn(UMLRTTimespec(1,0),1);</body>
+            </entry>
+          </subvertex>
+        </region>
+      </ownedBehavior>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_yimO4N7dEei0INX0aX4iTw" name="Controller" classifierBehavior="_3JGjIN7hEei0INX0aX4iTw" isActive="true">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_tdJGEN7fEei0INX0aX4iTw" name="commandPort" visibility="public" type="_prNiAN7eEei0INX0aX4iTw" isOrdered="true" aggregation="composite" isBehavior="true" isConjugated="true" isService="true"/>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_y9wO8N7fEei0INX0aX4iTw" name="controllerCashPort" visibility="public" type="_hr47AN7eEei0INX0aX4iTw" isOrdered="true" aggregation="composite" isBehavior="true" isService="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2qN5oN7fEei0INX0aX4iTw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2qpXcN7fEei0INX0aX4iTw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_PM0swN7gEei0INX0aX4iTw" name="log" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+        <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6kIb0IeXEeSVyrlWP4nYew"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_PuDxkN7gEei0INX0aX4iTw" name="timing" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+        <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_MxQZgGXsEeS_4daqvwyFrg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_6Ht6QN7qEei0INX0aX4iTw" name="controllerPrintPort" visibility="public" type="_hr47AN7eEei0INX0aX4iTw" isOrdered="true" aggregation="composite" isBehavior="true" isService="true"/>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_AfVjoN7rEei0INX0aX4iTw" name="controllerPadPort" visibility="public" type="_hr47AN7eEei0INX0aX4iTw" isOrdered="true" aggregation="composite" isBehavior="true" isService="true"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2r6FYGGSEeqsyahLzWi6Ow" name="balanceAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_2r6FYWGSEeqsyahLzWi6Ow" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2r6scGGSEeqsyahLzWi6Ow" name="requestType">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <qualifier xmi:type="uml:Property" xmi:id="_irI04GM2Eeq-M-JEa9kXEw" name="requestType">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_irI04WM2Eeq-M-JEa9kXEw" value="0"/>
+        </qualifier>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_2r6scWGSEeqsyahLzWi6Ow" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2r6scmGSEeqsyahLzWi6Ow" name="withdrawalAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_2r6sc2GSEeqsyahLzWi6Ow" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2r6sdGGSEeqsyahLzWi6Ow" name="depositAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_2r6sdWGSEeqsyahLzWi6Ow" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2r7TgGGSEeqsyahLzWi6Ow" name="cashTransferAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_2r7TgWGSEeqsyahLzWi6Ow" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2r7TgmGSEeqsyahLzWi6Ow" name="billAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_2r7Tg2GSEeqsyahLzWi6Ow" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2r76kGGSEeqsyahLzWi6Ow" name="bankApproval">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_2r76kWGSEeqsyahLzWi6Ow"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_L741wGM2Eeq-M-JEa9kXEw" name="local_balanceAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_L741wWM2Eeq-M-JEa9kXEw" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_L76D4GM2Eeq-M-JEa9kXEw" name="local_requestType">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_L76D4WM2Eeq-M-JEa9kXEw" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_L76q8GM2Eeq-M-JEa9kXEw" name="local_withdrawalAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_L76q8WM2Eeq-M-JEa9kXEw" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_L76q8mM2Eeq-M-JEa9kXEw" name="local_depositAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_L76q82M2Eeq-M-JEa9kXEw" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_L77SAGM2Eeq-M-JEa9kXEw" name="local_cashTransferAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_L77SAWM2Eeq-M-JEa9kXEw" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_L775EGM2Eeq-M-JEa9kXEw" name="local_billAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_L775EWM2Eeq-M-JEa9kXEw" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_L775EmM2Eeq-M-JEa9kXEw" name="local_bankApproval">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_L775E2M2Eeq-M-JEa9kXEw"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_gKGdEGYLEeqL3dOaD326aA" name="userID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_gKGdEWYLEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_gKGdEmYLEeqL3dOaD326aA" name="local_userID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_gKGdE2YLEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_3JGjIN7hEei0INX0aX4iTw" name="SM" isReentrant="false">
+        <region xmi:type="uml:Region" xmi:id="_3JQ7MN7hEei0INX0aX4iTw" name="Region">
+          <transition xmi:type="uml:Transition" xmi:id="_3JXB0N7hEei0INX0aX4iTw" name="Initial" source="_3JSJUN7hEei0INX0aX4iTw" target="_3JUlkN7hEei0INX0aX4iTw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_CFn7EN7iEei0INX0aX4iTw" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>	log.show(&quot;Initial transition taken in the controller: %s:%s\n&quot;,
+	this->getTypeName(),	        // name of the capsule. 
+	this->getName()			// name of the capsule part.
+	);
+
+</body>
+            </effect>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_Yg_78N7iEei0INX0aX4iTw" name="onNewRequest" kind="external" source="_3JUlkN7hEei0INX0aX4iTw" target="_NmuNoGM7Eeq-M-JEa9kXEw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_ZwUOwN7iEei0INX0aX4iTw" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>   local_userID = userID;
+	local_balanceAmount= balanceAmount;
+	local_withdrawalAmount = withdrawalAmount;
+	local_billAmount = billAmount;
+	local_cashTransferAmount = cashTransferAmount;
+   local_depositAmount = depositAmount;
+   local_requestType = requestType;
+
+</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_fWjegN7iEei0INX0aX4iTw" event="_HyzAoN7fEei0INX0aX4iTw" port="_AfVjoN7rEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_dZSwQCjTEemoIZTppuXl2g" name="backToIdleState" kind="external" source="_WtQWECjTEemoIZTppuXl2g" target="_3JUlkN7hEei0INX0aX4iTw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_e-Eb4GOnEeqNnbEuQmCe8A" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>controllerPadPort.pinPadDone().send();</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_l8oqUCjTEemoIZTppuXl2g" event="_i1ZzoCjTEemoIZTppuXl2g" port="_6Ht6QN7qEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_d-q38GGEEeqlw_kCH9NTkw" name="toPL1" kind="external" source="_aKxbsGNJEeq-M-JEa9kXEw" target="_WtQWECjTEemoIZTppuXl2g">
+            <trigger xmi:type="uml:Trigger" xmi:id="_khNEAGNJEeq-M-JEa9kXEw" event="_XgUCYN7fEei0INX0aX4iTw" port="_y9wO8N7fEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_rBKsYGIdEeqyifL-WDB23w" name="toGABI" guard="_9obicGIdEeqyifL-WDB23w" kind="external" source="_p2Gc4GIcEeqyifL-WDB23w" target="_QzG5gGIcEeqyifL-WDB23w">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_9obicGIdEeqyifL-WDB23w">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_9ocJgGIdEeqyifL-WDB23w">
+                <language>C++</language>
+                <body>return (local_requestType == 1);</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_sIuKUGIdEeqyifL-WDB23w" name="toPB" guard="_-YcDEGIdEeqyifL-WDB23w" kind="external" source="_p2Gc4GIcEeqyifL-WDB23w" target="_QzG5hmIcEeqyifL-WDB23w">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_-YcDEGIdEeqyifL-WDB23w">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_-YcDEWIdEeqyifL-WDB23w">
+                <language>C++</language>
+                <body>return (local_requestType == 2);</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_tDCdgGIdEeqyifL-WDB23w" name="toWM" guard="__MNpYGIdEeqyifL-WDB23w" kind="external" source="_p2Gc4GIcEeqyifL-WDB23w" target="_QzGScGIcEeqyifL-WDB23w">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="__MNpYGIdEeqyifL-WDB23w">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="__MOQcGIdEeqyifL-WDB23w">
+                <language>C++</language>
+                <body>return (local_requestType == 3);</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_trBDgGIdEeqyifL-WDB23w" name="toDM" guard="_AMAScGIeEeqyifL-WDB23w" kind="external" source="_p2Gc4GIcEeqyifL-WDB23w" target="_QzG5gmIcEeqyifL-WDB23w">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_AMAScGIeEeqyifL-WDB23w">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_AMAScWIeEeqyifL-WDB23w">
+                <language>C++</language>
+                <body>return (local_requestType == 4);</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_ub2DgGIdEeqyifL-WDB23w" name="toCT" guard="_A7yJkGIeEeqyifL-WDB23w" kind="external" source="_p2Gc4GIcEeqyifL-WDB23w" target="_QzG5iGIcEeqyifL-WDB23w">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_A7yJkGIeEeqyifL-WDB23w">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_A7ywoGIeEeqyifL-WDB23w">
+                <language>C++</language>
+                <body>return (local_requestType == 5);</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_vITg4GIdEeqyifL-WDB23w" name="toMLA" guard="_B0X-cGIeEeqyifL-WDB23w" kind="external" source="_p2Gc4GIcEeqyifL-WDB23w" target="_QzG5hGIcEeqyifL-WDB23w">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_B0X-cGIeEeqyifL-WDB23w">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_B0YlgGIeEeqyifL-WDB23w">
+                <language>C++</language>
+                <body>return (local_requestType == 6);</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_IqVJoGIeEeqyifL-WDB23w" name="BR1" kind="external" source="_QzG5gGIcEeqyifL-WDB23w" target="_bV0OIGMrEeq-M-JEa9kXEw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_YSWAUGIeEeqyifL-WDB23w" event="_uTxokN7eEei0INX0aX4iTw" port="_tdJGEN7fEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_NkNCoGIeEeqyifL-WDB23w" name="BR2" kind="external" source="_QzG5hmIcEeqyifL-WDB23w" target="_bV0OIGMrEeq-M-JEa9kXEw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_aLNmcGIeEeqyifL-WDB23w" event="_uTxokN7eEei0INX0aX4iTw" port="_tdJGEN7fEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_PDkjoGIeEeqyifL-WDB23w" name="BR3" kind="external" source="_QzGScGIcEeqyifL-WDB23w" target="_bV0OIGMrEeq-M-JEa9kXEw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_bZk3AGIeEeqyifL-WDB23w" event="_uTxokN7eEei0INX0aX4iTw" port="_tdJGEN7fEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_QR3iwGIeEeqyifL-WDB23w" name="BR4" kind="external" source="_QzG5gmIcEeqyifL-WDB23w" target="_bV0OIGMrEeq-M-JEa9kXEw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_cbiqUGIeEeqyifL-WDB23w" event="_uTxokN7eEei0INX0aX4iTw" port="_tdJGEN7fEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_RZn1AGIeEeqyifL-WDB23w" name="BR5" kind="external" source="_QzG5iGIcEeqyifL-WDB23w" target="_bV0OIGMrEeq-M-JEa9kXEw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_GTZpMGO4EeqNnbEuQmCe8A" event="_uTxokN7eEei0INX0aX4iTw" port="_tdJGEN7fEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_Sd25MGIeEeqyifL-WDB23w" name="BR6" kind="external" source="_QzG5hGIcEeqyifL-WDB23w" target="_bV0OIGMrEeq-M-JEa9kXEw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_ek0D8GIeEeqyifL-WDB23w" event="_uTxokN7eEei0INX0aX4iTw" port="_tdJGEN7fEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_97xgEGMsEeq-M-JEa9kXEw" name="toAS" guard="_N1zT0GMtEeq-M-JEa9kXEw" kind="external" source="_bV0OIGMrEeq-M-JEa9kXEw" target="_Mh7L8GM_Eeq-M-JEa9kXEw">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_N1zT0GMtEeq-M-JEa9kXEw">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_N1z64GMtEeq-M-JEa9kXEw">
+                <language>C++</language>
+                <body>return (bankApproval == true);</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="__20QcGMsEeq-M-JEa9kXEw" name="toDS" guard="_d1lxUGMtEeq-M-JEa9kXEw" kind="external" source="_bV0OIGMrEeq-M-JEa9kXEw" target="_kMrrsGMsEeq-M-JEa9kXEw">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_d1lxUGMtEeq-M-JEa9kXEw">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_d1mYYGMtEeq-M-JEa9kXEw">
+                <language>C++</language>
+                <body>return (bankApproval == false);</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_uZCVgGMtEeq-M-JEa9kXEw" name="toPL3" kind="external" source="_kMrrsGMsEeq-M-JEa9kXEw" target="_WtQWECjTEemoIZTppuXl2g">
+            <trigger xmi:type="uml:Trigger" xmi:id="_3rFA0GOqEeqNnbEuQmCe8A" event="_CdU34GOqEeqNnbEuQmCe8A" port="_AfVjoN7rEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_P_EvoGM8Eeq-M-JEa9kXEw" name="toCP1" kind="external" source="_wzoAQGM7Eeq-M-JEa9kXEw" target="_p2Gc4GIcEeqyifL-WDB23w"/>
+          <transition xmi:type="uml:Transition" xmi:id="_J6HKQGNBEeq-M-JEa9kXEw" name="toPL2" guard="_V3YYEGNCEeq-M-JEa9kXEw" kind="external" source="_CLbAQGNBEeq-M-JEa9kXEw" target="_WtQWECjTEemoIZTppuXl2g">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_V3YYEGNCEeq-M-JEa9kXEw">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_V3Y_IGNCEeq-M-JEa9kXEw">
+                <language>C++</language>
+                <body>return ((local_requestType == 1) || (local_requestType == 6) || (local_requestType == 2) || (local_requestType == 4) || (local_requestType == 5));</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_P2j6kGNBEeq-M-JEa9kXEw" name="tocp3" kind="external" source="_Mh-2UGM_Eeq-M-JEa9kXEw" target="_CLbAQGNBEeq-M-JEa9kXEw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_YwfIoGNBEeq-M-JEa9kXEw" name="toCCD" guard="_Xvr9gGNCEeq-M-JEa9kXEw" kind="external" source="_CLbAQGNBEeq-M-JEa9kXEw" target="_aKxbsGNJEeq-M-JEa9kXEw">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_Xvr9gGNCEeq-M-JEa9kXEw">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_XvskkGNCEeq-M-JEa9kXEw">
+                <language>C++</language>
+                <body>return (local_requestType == 3);</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_3JSJUN7hEei0INX0aX4iTw" name="initState" kind="initial"/>
+          <subvertex xmi:type="uml:State" xmi:id="_3JUlkN7hEei0INX0aX4iTw" name="Idle">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_-kc6YN7hEei0INX0aX4iTw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>	log.show(&quot;[Controller] [Idle] WATING for new request message from pinpad\n&quot;);
+
+local_balanceAmount= 0;
+	local_withdrawalAmount = 0;
+	local_billAmount = 0;
+	local_cashTransferAmount = 0;
+   local_depositAmount = 0;
+   local_requestType = 0;</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_WtQWECjTEemoIZTppuXl2g" name="printTheLog">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_NKnIEGGIEeqlw_kCH9NTkw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>	log.show(&quot;[Controller] [printTheLog]\n&quot;);
+
+
+controllerPrintPort.printLog().send();</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_QzGScGIcEeqyifL-WDB23w" name="withdrawMoney">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_QzGScWIcEeqyifL-WDB23w" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[Controller] [withdrawMoney]\n&quot;);
+
+commandPort.withdrawal(local_userID,local_withdrawalAmount,local_requestType, local_balanceAmount).send();
+</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_QzG5gGIcEeqyifL-WDB23w" name="getAccountBalanceInfo">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_QzG5gWIcEeqyifL-WDB23w" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[Controller] [getAccountBalanceInfo]\n&quot;);
+commandPort.accountInfo(local_userID,local_requestType).send();
+</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_QzG5gmIcEeqyifL-WDB23w" name="depositMoney">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_QzG5g2IcEeqyifL-WDB23w" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[Controller] [depositMoney]\n&quot;);
+
+commandPort.deposit(local_userID,local_depositAmount,local_requestType, local_balanceAmount).send();</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_QzG5hGIcEeqyifL-WDB23w" name="makeLoanApplication">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_QzG5hWIcEeqyifL-WDB23w" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[Controller] [makeLoanApplication]\n&quot;);
+commandPort.makeLoanApplication(local_userID,local_requestType).send();</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_QzG5hmIcEeqyifL-WDB23w" name="payBills">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_QzG5h2IcEeqyifL-WDB23w" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[Controller] [payBills]\n&quot;);
+commandPort.payBill(local_userID,local_billAmount,local_requestType, local_balanceAmount).send();</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_QzG5iGIcEeqyifL-WDB23w" name="cashTransfer">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_QzG5iWIcEeqyifL-WDB23w" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[Controller] [cashTransfer]\n&quot;);
+
+commandPort.cashTransfer(local_userID,local_cashTransferAmount,local_requestType, local_balanceAmount).send();</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_p2Gc4GIcEeqyifL-WDB23w" name="cp1" kind="choice"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_bV0OIGMrEeq-M-JEa9kXEw" name="cp2" kind="choice"/>
+          <subvertex xmi:type="uml:State" xmi:id="_SX6pkGMsEeq-M-JEa9kXEw" name="approveState">
+            <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_Mh7L8GM_Eeq-M-JEa9kXEw" kind="entryPoint"/>
+            <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_Mh-2UGM_Eeq-M-JEa9kXEw" kind="exitPoint"/>
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_SX6pkWMsEeq-M-JEa9kXEw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>	
+log.show(&quot;[Controller] [approveState] Your request has been approved!\n&quot;);</body>
+            </entry>
+            <region xmi:type="uml:Region" xmi:id="_Mh4vsGM_Eeq-M-JEa9kXEw" name="Region1">
+              <transition xmi:type="uml:Transition" xmi:id="_XayL4GM_Eeq-M-JEa9kXEw" name="toSO" kind="local" source="_Mh7L8GM_Eeq-M-JEa9kXEw" target="_R9OXAGM_Eeq-M-JEa9kXEw"/>
+              <transition xmi:type="uml:Transition" xmi:id="_Z0hDYGM_Eeq-M-JEa9kXEw" name="toSBR" kind="external" source="_R9OXAGM_Eeq-M-JEa9kXEw" target="_M5uA4GM_Eeq-M-JEa9kXEw">
+                <trigger xmi:type="uml:Trigger" xmi:id="_f_msoGM_Eeq-M-JEa9kXEw" event="_5NC9gGFzEeqlw_kCH9NTkw" port="_AfVjoN7rEei0INX0aX4iTw"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_ceFtsGM_Eeq-M-JEa9kXEw" name="toSDR" kind="external" source="_R9OXAGM_Eeq-M-JEa9kXEw" target="_M5uA4mM_Eeq-M-JEa9kXEw">
+                <trigger xmi:type="uml:Trigger" xmi:id="_lyc1AGM_Eeq-M-JEa9kXEw" event="_uMuqsGFzEeqlw_kCH9NTkw" port="_AfVjoN7rEei0INX0aX4iTw"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_z3cZwGM_Eeq-M-JEa9kXEw" name="toJP1" kind="external" source="_M5uA4GM_Eeq-M-JEa9kXEw" target="_yqb0EGM_Eeq-M-JEa9kXEw">
+                <trigger xmi:type="uml:Trigger" xmi:id="_61yE4GM_Eeq-M-JEa9kXEw" port="_PuDxkN7gEei0INX0aX4iTw">
+                  <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+                </trigger>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_2e150GM_Eeq-M-JEa9kXEw" name="toJP2" kind="external" source="_M5uA4mM_Eeq-M-JEa9kXEw" target="_yqb0EGM_Eeq-M-JEa9kXEw">
+                <trigger xmi:type="uml:Trigger" xmi:id="_8BN9QGM_Eeq-M-JEa9kXEw" port="_PuDxkN7gEei0INX0aX4iTw">
+                  <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+                </trigger>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_5aucIGM_Eeq-M-JEa9kXEw" name="out" kind="external" source="_yqb0EGM_Eeq-M-JEa9kXEw" target="_Mh-2UGM_Eeq-M-JEa9kXEw"/>
+              <subvertex xmi:type="uml:State" xmi:id="_M5uA4GM_Eeq-M-JEa9kXEw" name="showBriefResult">
+                <entry xmi:type="uml:OpaqueBehavior" xmi:id="_M5uA4WM_Eeq-M-JEa9kXEw" name="Entry" isReentrant="false">
+                  <language>C++</language>
+                  <body>	
+log.show(&quot;[Controller-approveState] [showBriefResult]\n&quot;);
+timing.informIn(UMLRTTimespec(1,0),1);</body>
+                </entry>
+              </subvertex>
+              <subvertex xmi:type="uml:State" xmi:id="_M5uA4mM_Eeq-M-JEa9kXEw" name="showDetailedResult">
+                <entry xmi:type="uml:OpaqueBehavior" xmi:id="_M5uA42M_Eeq-M-JEa9kXEw" name="Entry" isReentrant="false">
+                  <language>C++</language>
+                  <body>	
+	log.show(&quot;[Controller-approveState] [showDetailedResult]\n&quot;);
+timing.informIn(UMLRTTimespec(1,0),1);</body>
+                </entry>
+              </subvertex>
+              <subvertex xmi:type="uml:State" xmi:id="_R9OXAGM_Eeq-M-JEa9kXEw" name="showOptions">
+                <entry xmi:type="uml:OpaqueBehavior" xmi:id="_supyIGM_Eeq-M-JEa9kXEw" name="Entry" isReentrant="false">
+                  <language>C++</language>
+                  <body>	
+	log.show(&quot;[Controller-approveState] [showOptions]\n&quot;);
+
+controllerPadPort.infoOptions().send();</body>
+                </entry>
+              </subvertex>
+              <subvertex xmi:type="uml:Pseudostate" xmi:id="_yqb0EGM_Eeq-M-JEa9kXEw" name="jpoint" kind="junction"/>
+            </region>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_kMrrsGMsEeq-M-JEa9kXEw" name="disapproveState">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_og0aYGMsEeq-M-JEa9kXEw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[Controller] [disapproveState] Sorry your has been declined!\n&quot;);
+controllerPadPort.exit().send();</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_EGwTQGM7Eeq-M-JEa9kXEw" name="establishBankConn">
+            <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_NmuNoGM7Eeq-M-JEa9kXEw" kind="entryPoint"/>
+            <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_wzoAQGM7Eeq-M-JEa9kXEw" kind="exitPoint"/>
+            <region xmi:type="uml:Region" xmi:id="_NmlDsGM7Eeq-M-JEa9kXEw" name="Region1">
+              <transition xmi:type="uml:Transition" xmi:id="_h7-2kGM7Eeq-M-JEa9kXEw" name="toMC" kind="local" source="_NmuNoGM7Eeq-M-JEa9kXEw" target="_P4h4MGM7Eeq-M-JEa9kXEw"/>
+              <transition xmi:type="uml:Transition" xmi:id="_jnBcEGM7Eeq-M-JEa9kXEw" name="tcp" kind="external" source="_P4h4MGM7Eeq-M-JEa9kXEw" target="_cN0Z4GM7Eeq-M-JEa9kXEw">
+                <trigger xmi:type="uml:Trigger" xmi:id="_JZ5ycGM8Eeq-M-JEa9kXEw" port="_PuDxkN7gEei0INX0aX4iTw">
+                  <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+                </trigger>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_lc1HIGM7Eeq-M-JEa9kXEw" name="reTry" guard="_tmadYGM7Eeq-M-JEa9kXEw" kind="external" source="_cN0Z4GM7Eeq-M-JEa9kXEw" target="_P4h4MGM7Eeq-M-JEa9kXEw">
+                <ownedRule xmi:type="uml:Constraint" xmi:id="_tmadYGM7Eeq-M-JEa9kXEw">
+                  <specification xmi:type="uml:OpaqueExpression" xmi:id="_tmbEcGM7Eeq-M-JEa9kXEw">
+                    <language>C++</language>
+                    <body>return false;</body>
+                  </specification>
+                </ownedRule>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_pO31YGM7Eeq-M-JEa9kXEw" name="ok" guard="_u9askGM7Eeq-M-JEa9kXEw" kind="external" source="_cN0Z4GM7Eeq-M-JEa9kXEw" target="_fXEp0GM7Eeq-M-JEa9kXEw">
+                <ownedRule xmi:type="uml:Constraint" xmi:id="_u9askGM7Eeq-M-JEa9kXEw">
+                  <specification xmi:type="uml:OpaqueExpression" xmi:id="_u9bToGM7Eeq-M-JEa9kXEw">
+                    <language>C++</language>
+                    <body>return true;</body>
+                  </specification>
+                </ownedRule>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_xlKx8GM7Eeq-M-JEa9kXEw" name="out" kind="external" source="_fXEp0GM7Eeq-M-JEa9kXEw" target="_wzoAQGM7Eeq-M-JEa9kXEw">
+                <trigger xmi:type="uml:Trigger" xmi:id="_LP1ZUGM8Eeq-M-JEa9kXEw" port="_PuDxkN7gEei0INX0aX4iTw">
+                  <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+                </trigger>
+              </transition>
+              <subvertex xmi:type="uml:State" xmi:id="_P4h4MGM7Eeq-M-JEa9kXEw" name="makeTCPconn">
+                <entry xmi:type="uml:OpaqueBehavior" xmi:id="_7dCO8GM7Eeq-M-JEa9kXEw" name="Entry" isReentrant="false">
+                  <language>C++</language>
+                  <body>log.show(&quot;[Controller][establishBankConn] in makeTCPconn state \n&quot;);
+timing.informIn(UMLRTTimespec(1,0),1);</body>
+                </entry>
+              </subvertex>
+              <subvertex xmi:type="uml:Pseudostate" xmi:id="_cN0Z4GM7Eeq-M-JEa9kXEw" name="cp1" kind="choice"/>
+              <subvertex xmi:type="uml:State" xmi:id="_fXEp0GM7Eeq-M-JEa9kXEw" name="connected">
+                <entry xmi:type="uml:OpaqueBehavior" xmi:id="_89EeUGM7Eeq-M-JEa9kXEw" name="Entry" isReentrant="false">
+                  <language>C++</language>
+                  <body>log.show(&quot;[Controller][establishBankConn] in connected state \n&quot;);
+timing.informIn(UMLRTTimespec(1,0),1);</body>
+                </entry>
+              </subvertex>
+            </region>
+          </subvertex>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_CLbAQGNBEeq-M-JEa9kXEw" name="cp3" kind="choice"/>
+          <subvertex xmi:type="uml:State" xmi:id="_aKxbsGNJEeq-M-JEa9kXEw" name="cashDispenserState">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_fGPQIGNJEeq-M-JEa9kXEw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[Controller] [cashDispenserState]\n&quot;);
+controllerCashPort.cashOut(local_withdrawalAmount).send();</body>
+            </entry>
+          </subvertex>
+        </region>
+      </ownedBehavior>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_08gFgN7dEei0INX0aX4iTw" name="JournalPrinter" classifierBehavior="_34TZMN7mEei0INX0aX4iTw" isActive="true">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_7zPo8N7fEei0INX0aX4iTw" name="journalPrinterPort" visibility="public" type="_hr47AN7eEei0INX0aX4iTw" isOrdered="true" aggregation="composite" isBehavior="true" isConjugated="true" isService="true"/>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_S5ImcN7gEei0INX0aX4iTw" name="log" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+        <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6kIb0IeXEeSVyrlWP4nYew"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_TSQ4IN7gEei0INX0aX4iTw" name="timing" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+        <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_MxQZgGXsEeS_4daqvwyFrg"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_34TZMN7mEei0INX0aX4iTw" name="SM" isReentrant="false">
+        <region xmi:type="uml:Region" xmi:id="_34e_YN7mEei0INX0aX4iTw" name="Region">
+          <transition xmi:type="uml:Transition" xmi:id="_34lGAN7mEei0INX0aX4iTw" name="Initial" source="_34gNgN7mEei0INX0aX4iTw" target="_34ipwN7mEei0INX0aX4iTw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_HC6iMN7nEei0INX0aX4iTw" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>	log.show(&quot;Initial transition taken in the JournalPrinter in: %s:%s\n&quot;,
+	this->getTypeName(),	        // name of the capsule. 
+	this->getName()			// name of the capsule part.
+	);</body>
+            </effect>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_9TAuYN7mEei0INX0aX4iTw" name="printing" kind="external" source="_34ipwN7mEei0INX0aX4iTw" target="_34ipwN7mEei0INX0aX4iTw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="__Yi3gN7mEei0INX0aX4iTw" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[JournalPrinter] Printing the log for the user\n&quot;);
+
+journalPrinterPort.journalPrinterDone().send();</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_A-GgEN7nEei0INX0aX4iTw" event="_93sCYN7eEei0INX0aX4iTw" port="_7zPo8N7fEei0INX0aX4iTw"/>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_34gNgN7mEei0INX0aX4iTw" name="initState" kind="initial"/>
+          <subvertex xmi:type="uml:State" xmi:id="_34ipwN7mEei0INX0aX4iTw" name="Idle">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_6iVWgN7mEei0INX0aX4iTw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>	log.show(&quot;[JournalPrinter] [Idle ]\n&quot;);</body>
+            </entry>
+          </subvertex>
+        </region>
+      </ownedBehavior>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_3eXlUN7dEei0INX0aX4iTw" name="PinPad" classifierBehavior="_NTHKYN7mEei0INX0aX4iTw" isActive="true">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_AiJBAN7gEei0INX0aX4iTw" name="pinPadPort" visibility="public" type="_hr47AN7eEei0INX0aX4iTw" isOrdered="true" aggregation="composite" isBehavior="true" isConjugated="true" isService="true"/>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_USe_AN7gEei0INX0aX4iTw" name="log" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+        <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6kIb0IeXEeSVyrlWP4nYew"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_UvwJ0N7gEei0INX0aX4iTw" name="timing" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+        <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_MxQZgGXsEeS_4daqvwyFrg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_j9SlgGITEeqyifL-WDB23w" name="local_balanceAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_j9SlgWITEeqyifL-WDB23w" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_j9VBwGITEeqyifL-WDB23w" name="local_requestType">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_j9VBwWITEeqyifL-WDB23w" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_j9XeAGITEeqyifL-WDB23w" name="local_withdrawalAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_j9XeAWITEeqyifL-WDB23w" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_j9Z6QGITEeqyifL-WDB23w" name="local_depositAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_j9Z6QWITEeqyifL-WDB23w" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_j9cWgGITEeqyifL-WDB23w" name="local_cashTransferAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_j9cWgWITEeqyifL-WDB23w" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_j9fZ0GITEeqyifL-WDB23w" name="local_billAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_j9fZ0WITEeqyifL-WDB23w" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_j9h2EGITEeqyifL-WDB23w" name="local_infoType">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_j9h2EWITEeqyifL-WDB23w" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_j9lgcGITEeqyifL-WDB23w" name="bankApproval">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_j9lgcWITEeqyifL-WDB23w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_a-h0gGVlEeqL3dOaD326aA" name="testPort" visibility="public" type="_mjwo4N7eEei0INX0aX4iTw" isOrdered="true" aggregation="composite" isBehavior="true" isConjugated="true" isService="true"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_r2Na8GVzEeqL3dOaD326aA" name="balanceAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_r2Na8WVzEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_r2RsYGVzEeqL3dOaD326aA" name="requestType">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <qualifier xmi:type="uml:Property" xmi:id="_r2RsYWVzEeqL3dOaD326aA" name="requestType">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_r2RsYmVzEeqL3dOaD326aA" value="0"/>
+        </qualifier>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_r2RsY2VzEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_r2V90GVzEeqL3dOaD326aA" name="withdrawalAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_r2V90WVzEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_r2aPQGVzEeqL3dOaD326aA" name="depositAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_r2aPQWVzEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_r2egsGVzEeqL3dOaD326aA" name="cashTransferAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_r2egsWVzEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_r2iyIGVzEeqL3dOaD326aA" name="billAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_r2iyIWVzEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_r2nqoGVzEeqL3dOaD326aA" name="infoType">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_r2nqoWVzEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vkiAMGYKEeqL3dOaD326aA" name="userID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_vkiAMWYKEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xhdm8GYKEeqL3dOaD326aA" name="local_userID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_xhdm8WYKEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_NTHKYN7mEei0INX0aX4iTw" name="SM" isReentrant="false">
+        <region xmi:type="uml:Region" xmi:id="_NTSwkN7mEei0INX0aX4iTw" name="Region">
+          <transition xmi:type="uml:Transition" xmi:id="_NTZeQN7mEei0INX0aX4iTw" name="Initial" source="_NTVM0N7mEei0INX0aX4iTw" target="_NTXCAN7mEei0INX0aX4iTw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_TJO5EN--Eei20pnGHE1FGQ" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>	log.show(&quot;Initial transition taken in the pinPad in: %s:%s\n&quot;,
+	this->getTypeName(),	        // name of the capsule. 
+	this->getName()			// name of the capsule part.
+	);</body>
+            </effect>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_OXU7ACjVEemoIZTppuXl2g" name="onInit" kind="external" source="_NTXCAN7mEei0INX0aX4iTw" target="_7QclcGC_EeqWrtJZaD5zuw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_Qh7KUCjVEemoIZTppuXl2g" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;\n -------------------------------------------- \n&quot;); 
+
+log.show(&quot;[PinPad] initTestCase message received from the test harness \n&quot;);
+
+local_balanceAmount= balanceAmount;
+local_withdrawalAmount = withdrawalAmount;
+local_billAmount = billAmount;
+local_cashTransferAmount = cashTransferAmount;
+local_depositAmount = depositAmount;
+local_requestType = requestType;
+local_infoType = infoType;
+local_userID = userID;
+</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_N0M7sGV6EeqL3dOaD326aA" event="_gNp1sGVuEeqL3dOaD326aA" port="_a-h0gGVlEeqL3dOaD326aA"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_XVe9gGDAEeqWrtJZaD5zuw" name="toWA" guard="_SeuikGDDEeqWrtJZaD5zuw" kind="external" source="_7QclcGC_EeqWrtJZaD5zuw" target="_CT4L8GDAEeqWrtJZaD5zuw">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_SeuikGDDEeqWrtJZaD5zuw">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_SevJoGDDEeqWrtJZaD5zuw">
+                <language>C++</language>
+                <body>return (local_requestType == 3);</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_YuTKkGDAEeqWrtJZaD5zuw" name="toCTA" guard="_RirKAGDDEeqWrtJZaD5zuw" kind="external" source="_7QclcGC_EeqWrtJZaD5zuw" target="_MQBsAGDAEeqWrtJZaD5zuw">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_RirKAGDDEeqWrtJZaD5zuw">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_RirKAWDDEeqWrtJZaD5zuw">
+                <language>C++</language>
+                <body>return (local_requestType == 5);</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_aX9QAGDAEeqWrtJZaD5zuw" name="toBA" guard="_Pyb7cGDDEeqWrtJZaD5zuw" kind="external" source="_7QclcGC_EeqWrtJZaD5zuw" target="_RTsaMGDAEeqWrtJZaD5zuw">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_Pyb7cGDDEeqWrtJZaD5zuw">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_PycigGDDEeqWrtJZaD5zuw">
+                <language>C++</language>
+                <body>return (local_requestType == 2);</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_bubTsGDAEeqWrtJZaD5zuw" name="toD1" kind="external" source="_CT4L8GDAEeqWrtJZaD5zuw" target="_V9aXUGDAEeqWrtJZaD5zuw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_ohgiMGFQEeqlw_kCH9NTkw" port="_UvwJ0N7gEei0INX0aX4iTw">
+              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_c74lUGDAEeqWrtJZaD5zuw" name="toD2" kind="external" source="_MQBsAGDAEeqWrtJZaD5zuw" target="_V9aXUGDAEeqWrtJZaD5zuw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_qRzbIGFQEeqlw_kCH9NTkw" port="_UvwJ0N7gEei0INX0aX4iTw">
+              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_eyKxgGDAEeqWrtJZaD5zuw" name="toD3" kind="external" source="_RTsaMGDAEeqWrtJZaD5zuw" target="_V9aXUGDAEeqWrtJZaD5zuw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_vJRgYGFQEeqlw_kCH9NTkw" port="_UvwJ0N7gEei0INX0aX4iTw">
+              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_nOdoYGDAEeqWrtJZaD5zuw" name="approved" kind="external" source="_V9aXUGDAEeqWrtJZaD5zuw" target="__z_40GFyEeqlw_kCH9NTkw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_E29U0GFREeqlw_kCH9NTkw" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[PinPad]---------------> user's request approved, %s:%s\n&quot;,
+	this->getTypeName(),	        // name of the capsule. 
+	this->getName()			// name of the capsule part.
+	);
+
+bankApproval = true;
+</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_lSrj0GFSEeqlw_kCH9NTkw" event="_KqGscGGDEeqlw_kCH9NTkw" port="_AiJBAN7gEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_0s2OMGDCEeqWrtJZaD5zuw" name="toOthers" guard="_OYDBEGDDEeqWrtJZaD5zuw" kind="external" source="_7QclcGC_EeqWrtJZaD5zuw" target="_zUHgsGDCEeqWrtJZaD5zuw">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_OYDBEGDDEeqWrtJZaD5zuw">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_OYDoIGDDEeqWrtJZaD5zuw">
+                <language>C++</language>
+                <body>return ((local_requestType == 6) || (local_requestType == 1));</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_4gNyIGDCEeqWrtJZaD5zuw" name="toD5" kind="external" source="_zUHgsGDCEeqWrtJZaD5zuw" target="_V9aXUGDAEeqWrtJZaD5zuw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_toGBgGFQEeqlw_kCH9NTkw" port="_UvwJ0N7gEei0INX0aX4iTw">
+              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_lEBpwGDDEeqWrtJZaD5zuw" name="toD4" kind="external" source="_fggW0GDDEeqWrtJZaD5zuw" target="_V9aXUGDAEeqWrtJZaD5zuw">
+            <trigger xmi:type="uml:Trigger" xmi:id="_rv8NEGFQEeqlw_kCH9NTkw" port="_UvwJ0N7gEei0INX0aX4iTw">
+              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_nlp5AGDDEeqWrtJZaD5zuw" name="toDA" guard="_qsYZYGDDEeqWrtJZaD5zuw" kind="external" source="_7QclcGC_EeqWrtJZaD5zuw" target="_fggW0GDDEeqWrtJZaD5zuw">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_qsYZYGDDEeqWrtJZaD5zuw">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_qsYZYWDDEeqWrtJZaD5zuw">
+                <language>C++</language>
+                <body>return (local_requestType == 4);</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_Gb7AUGF5Eeqlw_kCH9NTkw" name="onPinPadDone1" kind="external" source="__z_40GFyEeqlw_kCH9NTkw" target="_Z6hOQGVvEeqL3dOaD326aA">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_9s8zYGNMEeq-M-JEa9kXEw" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[PinPad] pinPadDone message received: %s:%s\n&quot;,
+	this->getTypeName(),	        // name of the capsule. 
+	this->getName()			  	// name of the capsule part.
+	);
+
+</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_BYN04GGEEeqlw_kCH9NTkw" event="_dsLawGF5Eeqlw_kCH9NTkw" port="_AiJBAN7gEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_zUCkkGOpEeqNnbEuQmCe8A" name="disapproved" kind="external" source="_V9aXUGDAEeqWrtJZaD5zuw" target="_xQlfEGOpEeqNnbEuQmCe8A">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_Lk5zkGVvEeqL3dOaD326aA" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[PinPad]---------------> user's request disapproved, %s:%s\n&quot;,
+	this->getTypeName(),	        // name of the capsule. 
+	this->getName()			// name of the capsule part.
+	);
+bankApproval = false;
+</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_1N1XwGOpEeqNnbEuQmCe8A" event="_yRszQGOoEeqNnbEuQmCe8A" port="_AiJBAN7gEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_9psw0GOpEeqNnbEuQmCe8A" name="onPinPadDone2" kind="external" source="_xQlfEGOpEeqNnbEuQmCe8A" target="_Z6hOQGVvEeqL3dOaD326aA">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_GTXVUGOqEeqNnbEuQmCe8A" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[PinPad] pinPadDone message received: %s:%s\n&quot;,
+	this->getTypeName(),	        // name of the capsule. 
+	this->getName()			  	// name of the capsule part.
+	);</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_GpDRcGOqEeqNnbEuQmCe8A" event="_dsLawGF5Eeqlw_kCH9NTkw" port="_AiJBAN7gEei0INX0aX4iTw"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_fIkngGVvEeqL3dOaD326aA" name="backToIdleState" kind="external" source="_Z6hOQGVvEeqL3dOaD326aA" target="_NTXCAN7mEei0INX0aX4iTw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_s5pVQGVwEeqL3dOaD326aA" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>testPort.resultTestCase(bankApproval).send();</body>
+            </effect>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_X9PoQGV6EeqL3dOaD326aA" name="toBR" kind="external" source="_7QclcGC_EeqWrtJZaD5zuw" target="_VZeD8GV6EeqL3dOaD326aA"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_NTVM0N7mEei0INX0aX4iTw" name="initState" kind="initial"/>
+          <subvertex xmi:type="uml:State" xmi:id="_NTXCAN7mEei0INX0aX4iTw" name="Idle"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_7QclcGC_EeqWrtJZaD5zuw" name="ch1" kind="choice"/>
+          <subvertex xmi:type="uml:State" xmi:id="_CT4L8GDAEeqWrtJZaD5zuw" name="withdrawalState">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_zDTX4GFOEeqlw_kCH9NTkw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[PinPad][withdrawalState]\n&quot;);
+timing.informIn(UMLRTTimespec(1,0),1);</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_MQBsAGDAEeqWrtJZaD5zuw" name="cashTransferState">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_Nezw4GFQEeqlw_kCH9NTkw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[PinPad][cashTransferState]\n&quot;);
+timing.informIn(UMLRTTimespec(1,0),1);</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_RTsaMGDAEeqWrtJZaD5zuw" name="billState">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_Y-OagGFQEeqlw_kCH9NTkw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[PinPad][billState]\n&quot;);
+timing.informIn(UMLRTTimespec(1,0),1);</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_V9aXUGDAEeqWrtJZaD5zuw" name="sendRequestToController">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_3JsTkGFQEeqlw_kCH9NTkw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[PinPad][sendRequestToBank]\n&quot;);
+pinPadPort.newReq(local_userID, local_requestType,local_balanceAmount,local_withdrawalAmount,local_billAmount,local_cashTransferAmount,local_depositAmount).send();</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_zUHgsGDCEeqWrtJZaD5zuw" name="Others">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_l0jMsGFQEeqlw_kCH9NTkw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[PinPad]---------------> OTHER REQUEST\n&quot;);
+timing.informIn(UMLRTTimespec(1,0),1);</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_fggW0GDDEeqWrtJZaD5zuw" name="depositState">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_aHrV4GFQEeqlw_kCH9NTkw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[PinPad][depositState]\n&quot;);
+timing.informIn(UMLRTTimespec(1,0),1);</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="__z_40GFyEeqlw_kCH9NTkw" name="infoHandler">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_ay9ZoGFzEeqlw_kCH9NTkw" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>
+log.show(&quot;[PinPad] [infoHandler]\n&quot;);
+
+if (infoType == 1)
+	pinPadPort.moreInfo().send();
+else
+	pinPadPort.lessInfo().send();
+
+</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_xQlfEGOpEeqNnbEuQmCe8A" name="exit">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_8sIVUGOpEeqNnbEuQmCe8A" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[PinPad] [exit]\n&quot;);
+
+pinPadPort.ack().send();</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_Z6hOQGVvEeqL3dOaD326aA" name="jPoint" kind="junction"/>
+          <subvertex xmi:type="uml:State" xmi:id="_VZeD8GV6EeqL3dOaD326aA" name="badRequest">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_cegM8GV6EeqL3dOaD326aA" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[PinPad] badRequest !\n&quot;);</body>
+            </entry>
+          </subvertex>
+        </region>
+      </ownedBehavior>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_hr9McN7eEei0INX0aX4iTw" name="atmInternalProtocol">
+      <packagedElement xmi:type="uml:Collaboration" xmi:id="_hr47AN7eEei0INX0aX4iTw" name="atmInternalProtocol">
+        <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_hsBd4N7eEei0INX0aX4iTw" client="_hr47AN7eEei0INX0aX4iTw" supplier="_hr_osN7eEei0INX0aX4iTw" contract="_hr_osN7eEei0INX0aX4iTw"/>
+        <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_hsHkgN7eEei0INX0aX4iTw" client="_hr47AN7eEei0INX0aX4iTw" supplier="_hsFvUN7eEei0INX0aX4iTw" contract="_hsFvUN7eEei0INX0aX4iTw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_hr_osN7eEei0INX0aX4iTw" name="atmInternalProtocol">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_HyuIIN7fEei0INX0aX4iTw" name="newReq">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_pJIisGYNEeqL3dOaD326aA" name="userID">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Gci8UGGCEeqlw_kCH9NTkw" name="requestType">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_KxZcsGGCEeqlw_kCH9NTkw" name="balanceAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_N-ZkMGGCEeqlw_kCH9NTkw" name="withdrawalAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_VGzKQGGCEeqlw_kCH9NTkw" name="billAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_949DUGMxEeq-M-JEa9kXEw" name="cashTransferAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_XgAdUGGCEeqlw_kCH9NTkw" name="depositAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_NJ0vsN7fEei0INX0aX4iTw" name="dipositCash"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_XgN7wN7fEei0INX0aX4iTw" name="cashDispenserDone"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_i1R30CjTEemoIZTppuXl2g" name="journalPrinterDone"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_uMn9AGFzEeqlw_kCH9NTkw" name="moreInfo"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_5M7owGFzEeqlw_kCH9NTkw" name="lessInfo"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_CdTCsGOqEeqNnbEuQmCe8A" name="ack"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_hsCsAN7eEei0INX0aX4iTw" name="atmInternalProtocol~">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_93lUsN7eEei0INX0aX4iTw" name="printLog"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_6DSfgN7lEei0INX0aX4iTw" name="cashOut">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_7QHfAN7lEei0INX0aX4iTw" name="cashAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_pgm64N7mEei0INX0aX4iTw" name="operationDone"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_dr9YUGF5Eeqlw_kCH9NTkw" name="pinPadDone"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_Kp-JkGGDEeqlw_kCH9NTkw" name="infoOptions"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_yRfX4GOoEeqNnbEuQmCe8A" name="exit"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_hsEhMN7eEei0INX0aX4iTw" client="_hr47AN7eEei0INX0aX4iTw" supplier="_hsCsAN7eEei0INX0aX4iTw"/>
+      <packagedElement xmi:type="uml:AnyReceiveEvent" xmi:id="_hsFIQN7eEei0INX0aX4iTw" name="*"/>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_hsFvUN7eEei0INX0aX4iTw" name="atmInternalProtocolIO"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_hsILkN7eEei0INX0aX4iTw" client="_hr47AN7eEei0INX0aX4iTw" supplier="_hsFvUN7eEei0INX0aX4iTw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_93sCYN7eEei0INX0aX4iTw" operation="_93lUsN7eEei0INX0aX4iTw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_HyzAoN7fEei0INX0aX4iTw" operation="_HyuIIN7fEei0INX0aX4iTw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_NJ7dYN7fEei0INX0aX4iTw" operation="_NJ0vsN7fEei0INX0aX4iTw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_XgUCYN7fEei0INX0aX4iTw" operation="_XgN7wN7fEei0INX0aX4iTw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_6DTtoN7lEei0INX0aX4iTw" operation="_6DSfgN7lEei0INX0aX4iTw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_pgzIIN7mEei0INX0aX4iTw" operation="_pgm64N7mEei0INX0aX4iTw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_i1ZzoCjTEemoIZTppuXl2g" operation="_i1R30CjTEemoIZTppuXl2g"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_uMuqsGFzEeqlw_kCH9NTkw" operation="_uMn9AGFzEeqlw_kCH9NTkw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_5NC9gGFzEeqlw_kCH9NTkw" operation="_5M7owGFzEeqlw_kCH9NTkw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_dsLawGF5Eeqlw_kCH9NTkw" operation="_dr9YUGF5Eeqlw_kCH9NTkw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_KqGscGGDEeqlw_kCH9NTkw" operation="_Kp-JkGGDEeqlw_kCH9NTkw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_yRszQGOoEeqNnbEuQmCe8A" operation="_yRfX4GOoEeqNnbEuQmCe8A"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_CdU34GOqEeqNnbEuQmCe8A" operation="_CdTCsGOqEeqNnbEuQmCe8A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_mjx3AN7eEei0INX0aX4iTw" name="testProtocol">
+      <packagedElement xmi:type="uml:Collaboration" xmi:id="_mjwo4N7eEei0INX0aX4iTw" name="testProtocol">
+        <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_mj06UN7eEei0INX0aX4iTw" client="_mjwo4N7eEei0INX0aX4iTw" supplier="_mjzFId7eEei0INX0aX4iTw" contract="_mjzFId7eEei0INX0aX4iTw"/>
+        <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_mj5y0N7eEei0INX0aX4iTw" client="_mjwo4N7eEei0INX0aX4iTw" supplier="_mj39od7eEei0INX0aX4iTw" contract="_mj39od7eEei0INX0aX4iTw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_mjzFId7eEei0INX0aX4iTw" name="testProtocol">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_sAUygGVuEeqL3dOaD326aA" name="resultTestCase">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_kX0TkGVvEeqL3dOaD326aA" name="bankApproval">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_mj2IcN7eEei0INX0aX4iTw" name="testProtocol~">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_gNnZcGVuEeqL3dOaD326aA" name="initTestCase">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_xdoIcGYNEeqL3dOaD326aA" name="userID">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_JdAk4GVtEeqL3dOaD326aA" name="requestType">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_ORiD0GVtEeqL3dOaD326aA" name="infoType">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_IXd4IGV4EeqL3dOaD326aA" name="balanceAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Q3Qv8GVtEeqL3dOaD326aA" name="withdrawalAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_WbOu0GVtEeqL3dOaD326aA" name="billAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_XB2p8GVtEeqL3dOaD326aA" name="cashTransferAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_XbX9MGVtEeqL3dOaD326aA" name="depositAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_mj3WkN7eEei0INX0aX4iTw" client="_mjwo4N7eEei0INX0aX4iTw" supplier="_mj2IcN7eEei0INX0aX4iTw"/>
+      <packagedElement xmi:type="uml:AnyReceiveEvent" xmi:id="_mj39oN7eEei0INX0aX4iTw" name="*"/>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_mj39od7eEei0INX0aX4iTw" name="testProtocolIO"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_mj5y0d7eEei0INX0aX4iTw" client="_mjwo4N7eEei0INX0aX4iTw" supplier="_mj39od7eEei0INX0aX4iTw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_gNp1sGVuEeqL3dOaD326aA" operation="_gNnZcGVuEeqL3dOaD326aA"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_sAVZkGVuEeqL3dOaD326aA" operation="_sAUygGVuEeqL3dOaD326aA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_prOwIN7eEei0INX0aX4iTw" name="transactionProtocol">
+      <packagedElement xmi:type="uml:Collaboration" xmi:id="_prNiAN7eEei0INX0aX4iTw" name="transactionProtocol">
+        <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_prTBkN7eEei0INX0aX4iTw" client="_prNiAN7eEei0INX0aX4iTw" supplier="_prRMYN7eEei0INX0aX4iTw" contract="_prRMYN7eEei0INX0aX4iTw"/>
+        <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_prX6EN7eEei0INX0aX4iTw" client="_prNiAN7eEei0INX0aX4iTw" supplier="_prWE4N7eEei0INX0aX4iTw" contract="_prWE4N7eEei0INX0aX4iTw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_prRMYN7eEei0INX0aX4iTw" name="transactionProtocol">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_xMUjAN7eEei0INX0aX4iTw" name="accountInfo">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_NVutMGYNEeqL3dOaD326aA" name="userID">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_pm3cMGFaEeqlw_kCH9NTkw" name="requestType">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_JBgJAGFZEeqlw_kCH9NTkw" name="withdrawal">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_OzMwwGYNEeqL3dOaD326aA" name="userID">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_S2WuQGFZEeqlw_kCH9NTkw" name="withdrawalAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_soUbAGFaEeqlw_kCH9NTkw" name="requestType">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_JKc-wGFbEeqlw_kCH9NTkw" name="balanceAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_ZPjE8GFZEeqlw_kCH9NTkw" name="payBill">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_U4n24GYNEeqL3dOaD326aA" name="userID">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZPjE8WFZEeqlw_kCH9NTkw" name="billAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_uThYkGFaEeqlw_kCH9NTkw" name="requestType">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ol0bQGFbEeqlw_kCH9NTkw" name="balanceAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_gO9HEGFZEeqlw_kCH9NTkw" name="deposit">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZLQwwGYNEeqL3dOaD326aA" name="userID">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_gO9HEWFZEeqlw_kCH9NTkw" name="depositAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_wfcdkGFaEeqlw_kCH9NTkw" name="requestType">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_jGUT8GGUEeqsyahLzWi6Ow" name="balanceAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_lwNwMGFZEeqlw_kCH9NTkw" name="cashTransfer">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_cPf90GYNEeqL3dOaD326aA" name="userID">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_lwNwMWFZEeqlw_kCH9NTkw" name="cashTransferAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_yTRLoGFaEeqlw_kCH9NTkw" name="requestType">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_RMAaYGFbEeqlw_kCH9NTkw" name="balanceAmount">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_7Q8twGFZEeqlw_kCH9NTkw" name="makeLoanApplication">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_emVSUGYNEeqL3dOaD326aA" name="userID">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_0IscMGFaEeqlw_kCH9NTkw" name="requestType">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_byXqMGFdEeqlw_kCH9NTkw" name="atmAck"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_prTooN7eEei0INX0aX4iTw" name="transactionProtocol~">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_uTn3kN7eEei0INX0aX4iTw" name="bankReply">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_bBWD0GGHEeqlw_kCH9NTkw" name="bankApproval">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusC_Cpp_LIBRARIES/AnsiCLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_prVd0N7eEei0INX0aX4iTw" client="_prNiAN7eEei0INX0aX4iTw" supplier="_prTooN7eEei0INX0aX4iTw"/>
+      <packagedElement xmi:type="uml:AnyReceiveEvent" xmi:id="_prVd0d7eEei0INX0aX4iTw" name="*"/>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_prWE4N7eEei0INX0aX4iTw" name="transactionProtocolIO"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_prX6Ed7eEei0INX0aX4iTw" client="_prNiAN7eEei0INX0aX4iTw" supplier="_prWE4N7eEei0INX0aX4iTw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_uTxokN7eEei0INX0aX4iTw" operation="_uTn3kN7eEei0INX0aX4iTw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_xMbQsN7eEei0INX0aX4iTw" operation="_xMUjAN7eEei0INX0aX4iTw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_JBqhEGFZEeqlw_kCH9NTkw" operation="_JBgJAGFZEeqlw_kCH9NTkw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_ZPlhMGFZEeqlw_kCH9NTkw" operation="_ZPjE8GFZEeqlw_kCH9NTkw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_gO_jUGFZEeqlw_kCH9NTkw" operation="_gO9HEGFZEeqlw_kCH9NTkw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_lwQzgGFZEeqlw_kCH9NTkw" operation="_lwNwMGFZEeqlw_kCH9NTkw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_7RFQoGFZEeqlw_kCH9NTkw" operation="_7Q8twGFZEeqlw_kCH9NTkw"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_byg0IGFdEeqlw_kCH9NTkw" operation="_byXqMGFdEeqlw_kCH9NTkw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_R2Zn0GVkEeqL3dOaD326aA" name="TestHarness" classifierBehavior="_zrs34GVwEeqL3dOaD326aA" isActive="true">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_1ULvEGVkEeqL3dOaD326aA" name="testPort" visibility="public" type="_mjwo4N7eEei0INX0aX4iTw" isOrdered="true" aggregation="composite" isBehavior="true" isService="true"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_JqCXcGVxEeqL3dOaD326aA" name="bankApproval">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_JqCXcWVxEeqL3dOaD326aA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xJGi0GVxEeqL3dOaD326aA" name="balanceAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <qualifier xmi:type="uml:Property" xmi:id="_tl5ZcGV_EeqL3dOaD326aA" name="balanceAmount">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_tl5ZcWV_EeqL3dOaD326aA" value="0"/>
+        </qualifier>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_xJGi0WVxEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xJHJ4GVxEeqL3dOaD326aA" name="requestType">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_xJHJ4WVxEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xJHw8GVxEeqL3dOaD326aA" name="withdrawalAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_xJHw8WVxEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xJHw8mVxEeqL3dOaD326aA" name="depositAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_xJHw82VxEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xJIYAGVxEeqL3dOaD326aA" name="cashTransferAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_xJIYAWVxEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xJIYAmVxEeqL3dOaD326aA" name="billAmount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_xJIYA2VxEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xJI_EGVxEeqL3dOaD326aA" name="infoType">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_xJI_EWVxEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_9PEkMGVzEeqL3dOaD326aA" name="log" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+        <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6kIb0IeXEeSVyrlWP4nYew"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vdw6AGV_EeqL3dOaD326aA" name="testCaseConter">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <qualifier xmi:type="uml:Property" xmi:id="_vdw6AWV_EeqL3dOaD326aA" name="balanceAmount">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_vdw6AmV_EeqL3dOaD326aA" value="0"/>
+        </qualifier>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_vdw6A2V_EeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_DKd-oGYDEeqL3dOaD326aA" name="timing" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+        <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_MxQZgGXsEeS_4daqvwyFrg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vOgxEGYDEeqL3dOaD326aA" name="finishedUp">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_vOgxEWYDEeqL3dOaD326aA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_kXEpQGYKEeqL3dOaD326aA" name="userID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_kXEpQWYKEeqL3dOaD326aA" value="0"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_zrs34GVwEeqL3dOaD326aA" name="StateMachine" isReentrant="false">
+        <region xmi:type="uml:Region" xmi:id="_zr4eEGVwEeqL3dOaD326aA" name="Region">
+          <transition xmi:type="uml:Transition" xmi:id="_zsAZ4GVwEeqL3dOaD326aA" name="Initial" source="_zr66UGVwEeqL3dOaD326aA" target="_zr-ksGVwEeqL3dOaD326aA">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_UyLywGWAEeqL3dOaD326aA" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>testCaseConter = 1;</body>
+            </effect>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_-JsgwGVwEeqL3dOaD326aA" name="backToReadTestCaseFile" kind="external" source="_e5-BAGYCEeqL3dOaD326aA" target="_zr-ksGVwEeqL3dOaD326aA">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_ZsGs4GVxEeqL3dOaD326aA" name="Effect" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;[TestHarness][onResultTestCase] resultTestCase message received in TestHarness!\n&quot;);
+finishedUp = true;
+
+
+balanceAmount= 0;
+withdrawalAmount = 0;
+billAmount = 0;
+cashTransferAmount = 0;
+depositAmount = 0;
+requestType = 0;</body>
+            </effect>
+            <trigger xmi:type="uml:Trigger" xmi:id="_GHCx0GVxEeqL3dOaD326aA" event="_sAVZkGVuEeqL3dOaD326aA" port="_1ULvEGVkEeqL3dOaD326aA"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_kfrFQGYCEeqL3dOaD326aA" name="toCP" kind="external" source="_zr-ksGVwEeqL3dOaD326aA" target="_7Mnh0GYDEeqL3dOaD326aA">
+            <trigger xmi:type="uml:Trigger" xmi:id="_GbVScGYDEeqL3dOaD326aA" port="_DKd-oGYDEeqL3dOaD326aA">
+              <event xmi:type="uml:CallEvent" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_Fa7v8GYEEeqL3dOaD326aA" name="toRead" guard="_UhccEGYEEeqL3dOaD326aA" kind="external" source="_7Mnh0GYDEeqL3dOaD326aA" target="_e5-BAGYCEeqL3dOaD326aA">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_UhccEGYEEeqL3dOaD326aA">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_UhccEWYEEeqL3dOaD326aA">
+                <language>C++</language>
+                <body>return (finishedUp == false);</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_PfOfYGYEEeqL3dOaD326aA" name="toDone" guard="_WAel4GYEEeqL3dOaD326aA" kind="external" source="_7Mnh0GYDEeqL3dOaD326aA" target="_MAIiUGYEEeqL3dOaD326aA">
+            <ownedRule xmi:type="uml:Constraint" xmi:id="_WAel4GYEEeqL3dOaD326aA">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_WAfM8GYEEeqL3dOaD326aA">
+                <language>C++</language>
+                <body>return (finishedUp == true);</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_zr66UGVwEeqL3dOaD326aA" name="initState" kind="initial"/>
+          <subvertex xmi:type="uml:State" xmi:id="_zr-ksGVwEeqL3dOaD326aA" name="readTestCaseFile">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_f858kGVxEeqL3dOaD326aA" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>std::string line;
+std::string str_testCaseConter = &quot;&quot;;
+std::ifstream myfile(&quot;testCases.txt&quot;);
+
+log.show(&quot;\n==================================================================================================================\n&quot;);
+log.show(&quot;==================================================================================================================\n&quot;);
+std::cout &lt;&lt; str_testCaseConter &lt;&lt; std::endl;
+
+if (myfile.is_open())
+  {
+    while ( myfile.good() )
+    {
+getline (myfile,line);
+    
+    str_testCaseConter = &quot;[&quot; + std::to_string(testCaseConter) + &quot;]&quot;;
+    if (line.find(str_testCaseConter) != std::string::npos) {
+	std::cout &lt;&lt; &quot;TEST CASE: &quot; &lt;&lt; testCaseConter &lt;&lt; std::endl;
+	getline (myfile,line);
+	std::cout &lt;&lt; line &lt;&lt; std::endl;
+    	if (line.find(&quot;userID&quot;) != std::string::npos) {
+    		std::size_t pos = line.find(&quot;:&quot;);
+    		userID = std::atoi (line.substr (pos+1).c_str());
+		getline (myfile,line);
+    	}if (line.find(&quot;requestType&quot;) != std::string::npos) {
+    		std::size_t pos = line.find(&quot;:&quot;);
+    		requestType = std::atoi (line.substr (pos+1).c_str());
+		getline (myfile,line);
+    	}if (line.find(&quot;infoType&quot;) != std::string::npos) {
+    		std::size_t pos = line.find(&quot;:&quot;);
+    		infoType = std::atoi (line.substr (pos+1).c_str());
+		getline (myfile,line);
+    	}if (line.find(&quot;balanceAmount&quot;) != std::string::npos) {
+    		std::size_t pos = line.find(&quot;:&quot;);
+    		balanceAmount = std::atoi (line.substr (pos+1).c_str());
+		getline (myfile,line);
+    	}if (line.find(&quot;withdrawalAmount&quot;) != std::string::npos) {
+    		std::size_t pos = line.find(&quot;:&quot;);
+    		withdrawalAmount = std::atoi (line.substr (pos+1).c_str());
+		getline (myfile,line);
+    	}if (line.find(&quot;billAmount&quot;) != std::string::npos) {
+    		std::size_t pos = line.find(&quot;:&quot;);
+    		billAmount = std::atoi (line.substr (pos+1).c_str());
+		getline (myfile,line);
+    	}if (line.find(&quot;cashTransferAmount&quot;) != std::string::npos) {
+    		std::size_t pos = line.find(&quot;:&quot;);
+    		cashTransferAmount = std::atoi (line.substr (pos+1).c_str());
+    		getline (myfile,line);
+	}if (line.find(&quot;cashTransferAmount&quot;) != std::string::npos) {
+    		std::size_t pos = line.find(&quot;:&quot;);
+    		cashTransferAmount = std::atoi (line.substr (pos+1).c_str());
+    	}
+	testCaseConter++;
+   finishedUp = false;
+	break;
+	
+     }
+	
+    }
+    myfile.close();
+
+  }
+
+  else log.show( &quot;Unable to open file&quot;); 
+
+
+	timing.informIn(UMLRTTimespec(1,0),1);
+</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_e5-BAGYCEeqL3dOaD326aA" name="sendTestCaseToATM">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_Pl8A0GYDEeqL3dOaD326aA" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;\n\n\n[TestHarness][sendTestCase] Sending new test case to the ATM! \n\n userID:[%i], \n requestType:[%i], \n infoType:[%i], \n balanceAmount:[%i], \n withdrawalAmount:[%i], \n billAmount:[%i], \n cashTransferAmount:[%i] , \n depositAmountL[%i] \n&quot;,
+	userID,
+	requestType,
+   infoType,
+	balanceAmount,
+	withdrawalAmount,
+	billAmount,
+	cashTransferAmount,
+   depositAmount
+	);
+
+testPort.initTestCase(userID,requestType,infoType,balanceAmount,withdrawalAmount,billAmount,cashTransferAmount,depositAmount).send();
+</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_7Mnh0GYDEeqL3dOaD326aA" name="cp" kind="choice"/>
+          <subvertex xmi:type="uml:State" xmi:id="_MAIiUGYEEeqL3dOaD326aA" name="allTestCasesDone">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_eWWEoGYEEeqL3dOaD326aA" name="Entry" isReentrant="false">
+              <language>C++</language>
+              <body>log.show(&quot;\n\n\n>>>>>>>>>>>>>>>>>>>>>> [TestHarness][allTestCasesDone] &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;\n&quot;); </body>
+            </entry>
+          </subvertex>
+        </region>
+      </ownedBehavior>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_e0-Ns97dEei0INX0aX4iTw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_e0-NtN7dEei0INX0aX4iTw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/umlrt#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_RT_PROFILE/uml-rt.profile.uml#_1h74oEeVEeO0lv5O1DTHOQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_e0-Ntd7dEei0INX0aX4iTw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_e0-Ntt7dEei0INX0aX4iTw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/umlrt/statemachine#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_RT_PROFILE/UMLRealTimeSM-addendum.profile.uml#_KLcn0FDtEeOA4ecmvfqvaw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_e0-Nt97dEei0INX0aX4iTw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_e0-NuN7dEei0INX0aX4iTw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/umlrt/cppproperties#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UMLRT_CPP/RTCppProperties.profile.uml#_vl5LALs8EeSTjNEQkASznQ"/>
+    </profileApplication>
+  </uml:Model>
+  <UMLRealTime:Capsule xmi:id="_hkbdmN7dEei0INX0aX4iTw" base_Class="_hisYMN7dEei0INX0aX4iTw"/>
+  <UMLRealTime:Capsule xmi:id="_jlwcI97dEei0INX0aX4iTw" base_Class="_jlsxwN7dEei0INX0aX4iTw"/>
+  <UMLRealTime:Capsule xmi:id="_llL9QN7dEei0INX0aX4iTw" base_Class="_llEogN7dEei0INX0aX4iTw"/>
+  <UMLRealTime:Capsule xmi:id="_mujZFd7dEei0INX0aX4iTw" base_Class="_mugVwN7dEei0INX0aX4iTw"/>
+  <UMLRealTime:Capsule xmi:id="_yip5QN7dEei0INX0aX4iTw" base_Class="_yimO4N7dEei0INX0aX4iTw"/>
+  <UMLRealTime:Capsule xmi:id="_08jI3N7dEei0INX0aX4iTw" base_Class="_08gFgN7dEei0INX0aX4iTw"/>
+  <UMLRealTime:Capsule xmi:id="_3ebPsN7dEei0INX0aX4iTw" base_Class="_3eXlUN7dEei0INX0aX4iTw"/>
+  <UMLRealTime:CapsulePart xmi:id="_PJyRwN7eEei0INX0aX4iTw" base_Property="_PJv1gN7eEei0INX0aX4iTw"/>
+  <UMLRealTime:CapsulePart xmi:id="_QReSkN7eEei0INX0aX4iTw" base_Property="_QRcdYN7eEei0INX0aX4iTw"/>
+  <UMLRealTime:CapsulePart xmi:id="_VxoIcN7eEei0INX0aX4iTw" base_Property="_VxlsMN7eEei0INX0aX4iTw"/>
+  <UMLRealTime:CapsulePart xmi:id="_X7szUN7eEei0INX0aX4iTw" base_Property="_X7q-IN7eEei0INX0aX4iTw"/>
+  <UMLRealTime:CapsulePart xmi:id="_Yn05gN7eEei0INX0aX4iTw" base_Property="_YnydQN7eEei0INX0aX4iTw"/>
+  <UMLRealTime:CapsulePart xmi:id="_ZsQK8N7eEei0INX0aX4iTw" base_Property="_ZsNusN7eEei0INX0aX4iTw"/>
+  <UMLRealTime:ProtocolContainer xmi:id="_hr_BoN7eEei0INX0aX4iTw" base_Package="_hr9McN7eEei0INX0aX4iTw"/>
+  <UMLRealTime:RTMessageSet xmi:id="_hsA20N7eEei0INX0aX4iTw" base_Interface="_hr_osN7eEei0INX0aX4iTw"/>
+  <UMLRealTime:RTMessageSet xmi:id="_hsD6IN7eEei0INX0aX4iTw" base_Interface="_hsCsAN7eEei0INX0aX4iTw" rtMsgKind="out"/>
+  <UMLRealTime:RTMessageSet xmi:id="_hsG9cN7eEei0INX0aX4iTw" base_Interface="_hsFvUN7eEei0INX0aX4iTw" rtMsgKind="inOut"/>
+  <UMLRealTime:Protocol xmi:id="_hsIyoN7eEei0INX0aX4iTw" base_Collaboration="_hr47AN7eEei0INX0aX4iTw"/>
+  <UMLRealTime:ProtocolContainer xmi:id="_mjzFIN7eEei0INX0aX4iTw" base_Package="_mjx3AN7eEei0INX0aX4iTw"/>
+  <UMLRealTime:RTMessageSet xmi:id="_mj0TQN7eEei0INX0aX4iTw" base_Interface="_mjzFId7eEei0INX0aX4iTw"/>
+  <UMLRealTime:RTMessageSet xmi:id="_mj2vgN7eEei0INX0aX4iTw" base_Interface="_mj2IcN7eEei0INX0aX4iTw" rtMsgKind="out"/>
+  <UMLRealTime:RTMessageSet xmi:id="_mj5LwN7eEei0INX0aX4iTw" base_Interface="_mj39od7eEei0INX0aX4iTw" rtMsgKind="inOut"/>
+  <UMLRealTime:Protocol xmi:id="_mj6Z4N7eEei0INX0aX4iTw" base_Collaboration="_mjwo4N7eEei0INX0aX4iTw"/>
+  <UMLRealTime:ProtocolContainer xmi:id="_prQlUN7eEei0INX0aX4iTw" base_Package="_prOwIN7eEei0INX0aX4iTw"/>
+  <UMLRealTime:RTMessageSet xmi:id="_prSagN7eEei0INX0aX4iTw" base_Interface="_prRMYN7eEei0INX0aX4iTw"/>
+  <UMLRealTime:RTMessageSet xmi:id="_prU2wN7eEei0INX0aX4iTw" base_Interface="_prTooN7eEei0INX0aX4iTw" rtMsgKind="out"/>
+  <UMLRealTime:RTMessageSet xmi:id="_prXTAN7eEei0INX0aX4iTw" base_Interface="_prWE4N7eEei0INX0aX4iTw" rtMsgKind="inOut"/>
+  <UMLRealTime:Protocol xmi:id="_prYhIN7eEei0INX0aX4iTw" base_Collaboration="_prNiAN7eEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_h96psN7fEei0INX0aX4iTw" isPublish="false" isWired="true" base_Port="_h94NcN7fEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_nFY50N7fEei0INX0aX4iTw" isPublish="false" isWired="true" base_Port="_nFWdkN7fEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_tdLiUN7fEei0INX0aX4iTw" isPublish="false" isWired="true" base_Port="_tdJGEN7fEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_y9yrMN7fEei0INX0aX4iTw" isPublish="false" isWired="true" base_Port="_y9wO8N7fEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_3mi_AN7fEei0INX0aX4iTw" isPublish="false" isWired="true" base_Port="_3mdfcN7fEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_7zReIN7fEei0INX0aX4iTw" isPublish="false" isWired="true" base_Port="_7zPo8N7fEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_AiK2MN7gEei0INX0aX4iTw" isPublish="false" isWired="true" base_Port="_AiJBAN7gEei0INX0aX4iTw"/>
+  <UMLRealTime:RTConnector xmi:id="_FyEpkN7gEei0INX0aX4iTw" base_Connector="_Fx_xEN7gEei0INX0aX4iTw"/>
+  <UMLRealTime:RTConnector xmi:id="_GgHbUN7gEei0INX0aX4iTw" base_Connector="_GgDJ4N7gEei0INX0aX4iTw"/>
+  <UMLRealTime:RTConnector xmi:id="_HukLcN7gEei0INX0aX4iTw" base_Connector="_HuiWQN7gEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_KCqVAN7gEei0INX0aX4iTw" isPublish="false" isWired="false" base_Port="_KCk1cN7gEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_L6SlAN7gEei0INX0aX4iTw" isPublish="false" isWired="false" base_Port="_L6NsgN7gEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_PM4-MN7gEei0INX0aX4iTw" isPublish="false" isWired="false" base_Port="_PM0swN7gEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_PuFmwN7gEei0INX0aX4iTw" isPublish="false" isWired="false" base_Port="_PuDxkN7gEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_Q5GoYN7gEei0INX0aX4iTw" isPublish="false" isWired="false" base_Port="_Q5EzMN7gEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_RaCLMN7gEei0INX0aX4iTw" isPublish="false" isWired="false" base_Port="_RZ_H4N7gEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_S5LCsN7gEei0INX0aX4iTw" isPublish="false" isWired="false" base_Port="_S5ImcN7gEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_TSSGQN7gEei0INX0aX4iTw" isPublish="false" isWired="false" base_Port="_TSQ4IN7gEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_USjQcN7gEei0INX0aX4iTw" isPublish="false" isWired="false" base_Port="_USe_AN7gEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_Uv0bQN7gEei0INX0aX4iTw" isPublish="false" isWired="false" base_Port="_UvwJ0N7gEei0INX0aX4iTw"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_aoCL0N7gEei0INX0aX4iTw" headerPreface="" headerEnding="" base_Class="_hisYMN7dEei0INX0aX4iTw"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_hgqQgN7gEei0INX0aX4iTw" headerPreface="#include &lt;iostream>&#xA;#include &lt;chrono>&#xA;#include &lt;thread>" base_Class="_3eXlUN7dEei0INX0aX4iTw"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_jJyxgN7gEei0INX0aX4iTw" headerPreface="#include &lt;iostream>&#xA;#include &lt;chrono>&#xA;#include &lt;thread>" base_Class="_08gFgN7dEei0INX0aX4iTw"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_mzmJwN7gEei0INX0aX4iTw" headerPreface="#include &lt;iostream>&#xA;#include &lt;chrono>&#xA;#include &lt;thread>" base_Class="_yimO4N7dEei0INX0aX4iTw"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_pVmMcN7gEei0INX0aX4iTw" headerPreface="#include &lt;iostream>&#xA;#include &lt;chrono>&#xA;#include &lt;thread>" base_Class="_mugVwN7dEei0INX0aX4iTw"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_yBF88N7gEei0INX0aX4iTw" headerPreface="#include &lt;iostream>&#xA;#include &lt;chrono>&#xA;#include &lt;thread>&#xA;#include &lt;map>" headerEnding="" implementationPreface="std::map&lt;int,int> userMap;" base_Class="_jlsxwN7dEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_ctzwEN7hEei0INX0aX4iTw" base_Pseudostate="_ctyh8N7hEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTState xmi:id="_ct2MUN7hEei0INX0aX4iTw" base_State="_ct0-MN7hEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTRegion xmi:id="_ct2zYN7hEei0INX0aX4iTw" base_Region="_ctxT0N7hEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTStateMachine xmi:id="_ct4ooN7hEei0INX0aX4iTw" base_StateMachine="_ctp_EN7hEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_3JTXcN7hEei0INX0aX4iTw" base_Pseudostate="_3JSJUN7hEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTState xmi:id="_3JVzsN7hEei0INX0aX4iTw" base_State="_3JUlkN7hEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTRegion xmi:id="_3JXB0d7hEei0INX0aX4iTw" base_Region="_3JQ7MN7hEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTStateMachine xmi:id="_3JZeEN7hEei0INX0aX4iTw" base_StateMachine="_3JGjIN7hEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_pv_3MN7lEei0INX0aX4iTw" base_Pseudostate="_pv9a8N7lEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTState xmi:id="_pwBsYN7lEei0INX0aX4iTw" base_State="_pwAeQN7lEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTRegion xmi:id="_pwC6gN7lEei0INX0aX4iTw" base_Region="_pv7lwN7lEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTStateMachine xmi:id="_pwGk4N7lEei0INX0aX4iTw" base_StateMachine="_pvwmoN7lEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_NTWa8N7mEei0INX0aX4iTw" base_Pseudostate="_NTVM0N7mEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTState xmi:id="_NTY3MN7mEei0INX0aX4iTw" base_State="_NTXCAN7mEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTRegion xmi:id="_NTaFUN7mEei0INX0aX4iTw" base_Region="_NTSwkN7mEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTStateMachine xmi:id="_NTdvsN7mEei0INX0aX4iTw" base_StateMachine="_NTHKYN7mEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_34iCsN7mEei0INX0aX4iTw" base_Pseudostate="_34gNgN7mEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTState xmi:id="_34ke8N7mEei0INX0aX4iTw" base_State="_34ipwN7mEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTRegion xmi:id="_34ltEN7mEei0INX0aX4iTw" base_Region="_34e_YN7mEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTStateMachine xmi:id="_34qlkN7mEei0INX0aX4iTw" base_StateMachine="_34TZMN7mEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_6HvvcN7qEei0INX0aX4iTw" isPublish="false" isWired="true" base_Port="_6Ht6QN7qEei0INX0aX4iTw"/>
+  <UMLRealTime:RTPort xmi:id="_AfYm8N7rEei0INX0aX4iTw" isPublish="false" isWired="true" base_Port="_AfVjoN7rEei0INX0aX4iTw"/>
+  <UMLRTStateMachines:RTState xmi:id="_WtTZYCjTEemoIZTppuXl2g" base_State="_WtQWECjTEemoIZTppuXl2g"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_7QeaoGC_EeqWrtJZaD5zuw" base_Pseudostate="_7QclcGC_EeqWrtJZaD5zuw"/>
+  <UMLRTStateMachines:RTState xmi:id="_CT6BIGDAEeqWrtJZaD5zuw" base_State="_CT4L8GDAEeqWrtJZaD5zuw"/>
+  <UMLRTStateMachines:RTState xmi:id="_MQDhMGDAEeqWrtJZaD5zuw" base_State="_MQBsAGDAEeqWrtJZaD5zuw"/>
+  <UMLRTStateMachines:RTState xmi:id="_RTuPYGDAEeqWrtJZaD5zuw" base_State="_RTsaMGDAEeqWrtJZaD5zuw"/>
+  <UMLRTStateMachines:RTState xmi:id="_V9blcGDAEeqWrtJZaD5zuw" base_State="_V9aXUGDAEeqWrtJZaD5zuw"/>
+  <UMLRTStateMachines:RTState xmi:id="_zUIu0GDCEeqWrtJZaD5zuw" base_State="_zUHgsGDCEeqWrtJZaD5zuw"/>
+  <UMLRTStateMachines:RTState xmi:id="_fghk8GDDEeqWrtJZaD5zuw" base_State="_fggW0GDDEeqWrtJZaD5zuw"/>
+  <UMLRTStateMachines:RTState xmi:id="__0CVEGFyEeqlw_kCH9NTkw" base_State="__z_40GFyEeqlw_kCH9NTkw"/>
+  <UMLRTStateMachines:RTState xmi:id="_QzOOQWIcEeqyifL-WDB23w" base_State="_QzG5gGIcEeqyifL-WDB23w"/>
+  <UMLRTStateMachines:RTState xmi:id="_QzO1UGIcEeqyifL-WDB23w" base_State="_QzG5iGIcEeqyifL-WDB23w"/>
+  <UMLRTStateMachines:RTState xmi:id="_QzPcYGIcEeqyifL-WDB23w" base_State="_QzG5hmIcEeqyifL-WDB23w"/>
+  <UMLRTStateMachines:RTState xmi:id="_QzQDcGIcEeqyifL-WDB23w" base_State="_QzGScGIcEeqyifL-WDB23w"/>
+  <UMLRTStateMachines:RTState xmi:id="_QzQqgGIcEeqyifL-WDB23w" base_State="_QzG5gmIcEeqyifL-WDB23w"/>
+  <UMLRTStateMachines:RTState xmi:id="_QzRRkGIcEeqyifL-WDB23w" base_State="_QzG5hGIcEeqyifL-WDB23w"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_p2I5IGIcEeqyifL-WDB23w" base_Pseudostate="_p2Gc4GIcEeqyifL-WDB23w"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_bWDesGMrEeq-M-JEa9kXEw" base_Pseudostate="_bV0OIGMrEeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTState xmi:id="_SX-T8GMsEeq-M-JEa9kXEw" base_State="_SX6pkGMsEeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTState xmi:id="_kMvWEGMsEeq-M-JEa9kXEw" base_State="_kMrrsGMsEeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTState xmi:id="_EGyvgGM7Eeq-M-JEa9kXEw" base_State="_EGwTQGM7Eeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTRegion xmi:id="_NmrKUGM7Eeq-M-JEa9kXEw" base_Region="_NmlDsGM7Eeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_Nmwp4GM7Eeq-M-JEa9kXEw" base_Pseudostate="_NmuNoGM7Eeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTState xmi:id="_P4k7gGM7Eeq-M-JEa9kXEw" base_State="_P4h4MGM7Eeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_cN22IGM7Eeq-M-JEa9kXEw" base_Pseudostate="_cN0Z4GM7Eeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTState xmi:id="_fXHtIGM7Eeq-M-JEa9kXEw" base_State="_fXEp0GM7Eeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_wzqcgGM7Eeq-M-JEa9kXEw" base_Pseudostate="_wzoAQGM7Eeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTRegion xmi:id="_Mh5WwGM_Eeq-M-JEa9kXEw" base_Region="_Mh4vsGM_Eeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_Mh9BIGM_Eeq-M-JEa9kXEw" base_Pseudostate="_Mh7L8GM_Eeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_MiArgGM_Eeq-M-JEa9kXEw" base_Pseudostate="_Mh-2UGM_Eeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTState xmi:id="_M5xrQ2M_Eeq-M-JEa9kXEw" base_State="_M5uA4GM_Eeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTState xmi:id="_M5ySUGM_Eeq-M-JEa9kXEw" base_State="_M5uA4mM_Eeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTState xmi:id="_R9QzQGM_Eeq-M-JEa9kXEw" base_State="_R9OXAGM_Eeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_yqh6sGM_Eeq-M-JEa9kXEw" base_Pseudostate="_yqb0EGM_Eeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_CLeDkGNBEeq-M-JEa9kXEw" base_Pseudostate="_CLbAQGNBEeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTState xmi:id="_lHE4kGNGEeq-M-JEa9kXEw" base_State="_lHDDYGNGEeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTState xmi:id="_8WMqkGNGEeq-M-JEa9kXEw" base_State="_8WJnQGNGEeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTState xmi:id="_RsZzIGNHEeq-M-JEa9kXEw" base_State="_RsXW4GNHEeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTState xmi:id="_ZTVvUGNHEeq-M-JEa9kXEw" base_State="_ZTUhMGNHEeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_ipOgoGNHEeq-M-JEa9kXEw" base_Pseudostate="_ipMrcGNHEeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTState xmi:id="_shEIcGNHEeq-M-JEa9kXEw" base_State="_shC6UGNHEeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTState xmi:id="_aKyp0GNJEeq-M-JEa9kXEw" base_State="_aKxbsGNJEeq-M-JEa9kXEw"/>
+  <UMLRTStateMachines:RTState xmi:id="_xQpJcGOpEeqNnbEuQmCe8A" base_State="_xQlfEGOpEeqNnbEuQmCe8A"/>
+  <UMLRealTime:RTConnector xmi:id="__Fvf8WPIEeqNnbEuQmCe8A" base_Connector="__FtDsGPIEeqNnbEuQmCe8A"/>
+  <UMLRealTime:RTConnector xmi:id="_LZZp8mPJEeqNnbEuQmCe8A" base_Connector="_LZX0wGPJEeqNnbEuQmCe8A"/>
+  <UMLRealTime:Capsule xmi:id="_R25XEGVkEeqL3dOaD326aA" base_Class="_R2Zn0GVkEeqL3dOaD326aA"/>
+  <UMLRealTime:CapsulePart xmi:id="_ZFAjkGVkEeqL3dOaD326aA" base_Property="_ZE4AsGVkEeqL3dOaD326aA"/>
+  <UMLRealTime:RTPort xmi:id="_1UQAgGVkEeqL3dOaD326aA" isPublish="false" isWired="true" base_Port="_1ULvEGVkEeqL3dOaD326aA"/>
+  <UMLRealTime:RTPort xmi:id="__ZnG8GVkEeqL3dOaD326aA" isPublish="false" isWired="true" base_Port="__ZkDoGVkEeqL3dOaD326aA"/>
+  <UMLRealTime:RTConnector xmi:id="_IYr6wGVlEeqL3dOaD326aA" base_Connector="_IYoQYGVlEeqL3dOaD326aA"/>
+  <UMLRealTime:RTPort xmi:id="_a-mF8GVlEeqL3dOaD326aA" isPublish="false" isWired="true" base_Port="_a-h0gGVlEeqL3dOaD326aA"/>
+  <UMLRealTime:RTConnector xmi:id="_hR-vkGVlEeqL3dOaD326aA" base_Connector="_hR7sQGVlEeqL3dOaD326aA"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_Z6mt0GVvEeqL3dOaD326aA" base_Pseudostate="_Z6hOQGVvEeqL3dOaD326aA"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_zr8vgGVwEeqL3dOaD326aA" base_Pseudostate="_zr66UGVwEeqL3dOaD326aA"/>
+  <UMLRTStateMachines:RTState xmi:id="_zr_y0GVwEeqL3dOaD326aA" base_State="_zr-ksGVwEeqL3dOaD326aA"/>
+  <UMLRTStateMachines:RTRegion xmi:id="_zsBA8GVwEeqL3dOaD326aA" base_Region="_zr4eEGVwEeqL3dOaD326aA"/>
+  <UMLRTStateMachines:RTStateMachine xmi:id="_zsIVsGVwEeqL3dOaD326aA" base_StateMachine="_zrs34GVwEeqL3dOaD326aA"/>
+  <UMLRealTime:RTPort xmi:id="_9PHAcGVzEeqL3dOaD326aA" isPublish="false" isWired="false" base_Port="_9PEkMGVzEeqL3dOaD326aA"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_iTUdgGV1EeqL3dOaD326aA" headerPreface="#include &lt;iostream>&#xA;#include &lt;fstream>&#xA;#include &lt;string>&#xA;" headerEnding="" implementationPreface="" base_Class="_R2Zn0GVkEeqL3dOaD326aA"/>
+  <UMLRTStateMachines:RTState xmi:id="_VZf5IGV6EeqL3dOaD326aA" base_State="_VZeD8GV6EeqL3dOaD326aA"/>
+  <UMLRTStateMachines:RTState xmi:id="_e5_2MGYCEeqL3dOaD326aA" base_State="_e5-BAGYCEeqL3dOaD326aA"/>
+  <UMLRealTime:RTPort xmi:id="_DKfz0GYDEeqL3dOaD326aA" isPublish="false" isWired="false" base_Port="_DKd-oGYDEeqL3dOaD326aA"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_7Mov8GYDEeqL3dOaD326aA" base_Pseudostate="_7Mnh0GYDEeqL3dOaD326aA"/>
+  <UMLRTStateMachines:RTState xmi:id="_MAJwcGYEEeqL3dOaD326aA" base_State="_MAIiUGYEEeqL3dOaD326aA"/>
+</xmi:XMI>
