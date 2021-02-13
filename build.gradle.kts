@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "ca.jahed"
-version = "0.1"
+version = "0.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -30,8 +30,6 @@ tasks.jar {
         attributes(mapOf("Implementation-Title" to project.name,
             "Implementation-Version" to project.version))
     }
-
-    from(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 }
 
 publishing {
