@@ -113,7 +113,7 @@ class TestLib {
                             RTTransition.builder("initial", "playing")
                                 .action("""
                                     this->count = 1;
-                                    ppPong.ping(count).send();
+                                    ppPort.ping(count).send();
                                 """)
                         )
                         .transition(
@@ -166,7 +166,7 @@ class TestLib {
 
     @Test
     internal fun TestBuilder() {
-        pingerPonger()
+        saveModel(pingerPonger())
     }
 
     @Test
