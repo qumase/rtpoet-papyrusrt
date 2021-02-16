@@ -511,8 +511,8 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
     override fun visitTrigger(trigger: RTTrigger): Trigger {
         val umlTrigger = UMLFactory.eINSTANCE.createTrigger()
         umlTrigger.name = trigger.name
-        umlTrigger.ports.add(visit(trigger.port) as Port)
         umlTrigger.event = visit(trigger.signal) as MessageEvent
+        trigger.ports.forEach { umlTrigger.ports.add(visit(it) as Port) }
         return umlTrigger
     }
 

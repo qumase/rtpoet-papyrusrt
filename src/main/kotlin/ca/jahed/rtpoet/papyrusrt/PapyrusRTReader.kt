@@ -145,6 +145,10 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
             builder.statemachine(visit(it) as RTStateMachine)
         }
 
+        val properties = EMFUtils.getReferencingObjectByType(resource.contents,
+            RTCppPropertiesPackage.Literals.CAPSULE_PROPERTIES, capsule)
+        if (properties != null) builder.properties(visit(properties) as RTCapsuleProperties)
+
         return builder.build()
     }
 
@@ -168,16 +172,30 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
         klass.superClasses.forEach { builder.superClass(visit(it) as RTClass) }
         klass.ownedAttributes.forEach { builder.attribute(visit(it) as RTAttribute) }
         klass.ownedOperations.forEach { builder.operation(visit(it) as RTOperation) }
+
+        val properties = EMFUtils.getReferencingObjectByType(resource.contents,
+            RTCppPropertiesPackage.Literals.CLASS_PROPERTIES, klass)
+        if (properties != null) builder.properties(visit(properties) as RTClassProperties)
+
         return builder.build()
     }
 
     private fun visitArtifact(artifact: Artifact): RTArtifact {
-        return RTArtifact.builder(artifact.name).fileName(artifact.fileName).build()
+        val builder = RTArtifact.builder(artifact.name).fileName(artifact.fileName)
+        val properties = EMFUtils.getReferencingObjectByType(resource.contents,
+            RTCppPropertiesPackage.Literals.ARTIFACT_PROPERTIES, artifact)
+        if (properties != null) builder.properties(visit(properties) as RTArtifactProperties)
+        return builder.build()
     }
 
     private fun visitEnumeration(enumeration: Enumeration): RTEnumeration {
         val builder = RTEnumeration.builder(enumeration.name)
         enumeration.ownedLiterals.forEach { builder.literal(it.name) }
+
+        val properties = EMFUtils.getReferencingObjectByType(resource.contents,
+            RTCppPropertiesPackage.Literals.ENUMERATION_PROPERTIES, enumeration)
+        if (properties != null) builder.properties(visit(properties) as RTEnumerationProperties)
+
         return builder.build()
     }
 
@@ -202,6 +220,11 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
             VisibilityKind.PRIVATE_LITERAL -> builder.privateVisibility()
             else -> builder.protectedVisibility()
         }
+
+        val properties = EMFUtils.getReferencingObjectByType(resource.contents,
+            RTCppPropertiesPackage.Literals.ATTRIBUTE_PROPERTIES, property)
+        if (properties != null) builder.properties(visit(properties) as RTAttributeProperties)
+
         return builder.build()
     }
 
@@ -214,13 +237,21 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
                 else -> builder.parameter(visit(it) as RTParameter)
             }
         }
+
+        val properties = EMFUtils.getReferencingObjectByType(resource.contents,
+            RTCppPropertiesPackage.Literals.OPERATION_PROPERTIES, operation)
+        if (properties != null) builder.properties(visit(properties) as RTOperationProperties)
+
         return builder.build()
     }
 
     private fun visitParameter(parameter: Parameter): RTParameter {
-        return RTParameter.builder(parameter.name, visit(parameter.type) as RTType)
+        val builder = RTParameter.builder(parameter.name, visit(parameter.type) as RTType)
             .replication(parameter.upper)
-            .build()
+        val properties = EMFUtils.getReferencingObjectByType(resource.contents,
+            RTCppPropertiesPackage.Literals.PARAMETER_PROPERTIES, parameter)
+        if (properties != null) builder.properties(visit(properties) as RTParameterProperties)
+        return builder.build()
     }
 
     private fun visitPort(port: Port): RTPort {
@@ -319,15 +350,16 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
             visit(transition.target) as RTGenericState)
 
         if (transition.effect != null) builder.action(visit(transition.effect) as RTAction)
-        if (transition.guard != null) builder.action(visit(transition.guard.specification) as RTAction)
+        if (transition.guard != null) builder.guard(visit(transition.guard.specification) as RTAction)
         transition.triggers.forEach { builder.trigger(visit(it) as RTTrigger) }
 
         return builder.build()
     }
 
     private fun visitTrigger(trigger: Trigger): RTTrigger {
-        return RTTrigger.builder(visit(trigger.event) as RTSignal,
-            visit(trigger.ports[0]) as RTPort).build()
+        val builder = RTTrigger.builder(visit(trigger.event) as RTSignal)
+        trigger.ports.forEach { builder.port(visit(it) as RTPort) }
+        return builder.build()
     }
 
     private fun visitVertex(vertex: Vertex): RTGenericState {
