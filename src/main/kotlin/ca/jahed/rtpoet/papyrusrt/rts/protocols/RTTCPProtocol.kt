@@ -1,10 +1,10 @@
 package ca.jahed.rtpoet.papyrusrt.rts.protocols
 
-import ca.jahed.rtpoet.papyrusrt.rts.primitivetype.RTInteger
-import ca.jahed.rtpoet.papyrusrt.rts.primitivetype.RTString
 import ca.jahed.rtpoet.rtmodel.RTParameter
-import ca.jahed.rtpoet.rtmodel.rts.RTSystemProtocol
 import ca.jahed.rtpoet.rtmodel.rts.RTSystemSignal
+import ca.jahed.rtpoet.rtmodel.rts.protocols.RTSystemProtocol
+import ca.jahed.rtpoet.rtmodel.types.primitivetype.RTInteger
+import ca.jahed.rtpoet.rtmodel.types.primitivetype.RTString
 
 object RTTCPProtocol : RTSystemProtocol("TCP") {
     private object Connected : RTSystemSignal("connected")

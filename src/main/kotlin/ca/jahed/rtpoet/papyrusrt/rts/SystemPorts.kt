@@ -1,8 +1,12 @@
 package ca.jahed.rtpoet.papyrusrt.rts
 
-import ca.jahed.rtpoet.papyrusrt.rts.protocols.*
+import ca.jahed.rtpoet.papyrusrt.rts.protocols.RTMQTTProtocol
+import ca.jahed.rtpoet.papyrusrt.rts.protocols.RTTCPProtocol
 import ca.jahed.rtpoet.rtmodel.RTPort
 import ca.jahed.rtpoet.rtmodel.RTProtocol
+import ca.jahed.rtpoet.rtmodel.rts.protocols.RTFrameProtocol
+import ca.jahed.rtpoet.rtmodel.rts.protocols.RTLogProtocol
+import ca.jahed.rtpoet.rtmodel.rts.protocols.RTTimingProtocol
 
 object SystemPorts {
     @JvmStatic

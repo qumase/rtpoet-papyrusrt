@@ -1,7 +1,7 @@
 package ca.jahed.rtpoet.papyrusrt.rts.protocols
 
-import ca.jahed.rtpoet.rtmodel.rts.RTSystemProtocol
 import ca.jahed.rtpoet.rtmodel.rts.RTSystemSignal
+import ca.jahed.rtpoet.rtmodel.rts.protocols.RTSystemProtocol
 
 object RTBaseCommProtocol : RTSystemProtocol("UMLRTBaseCommProtocol") {
     private object RTBound : RTSystemSignal("rtBound")

@@ -3,12 +3,12 @@ package ca.jahed.rtpoet.papyrusrt
 import ca.jahed.rtpoet.papyrusrt.rts.PapyrusRTLibrary
 import ca.jahed.rtpoet.rtmodel.*
 import ca.jahed.rtpoet.rtmodel.cppproperties.*
-import ca.jahed.rtpoet.rtmodel.rts.RTSystemClass
-import ca.jahed.rtpoet.rtmodel.rts.RTSystemProtocol
 import ca.jahed.rtpoet.rtmodel.rts.RTSystemSignal
+import ca.jahed.rtpoet.rtmodel.rts.classes.RTSystemClass
+import ca.jahed.rtpoet.rtmodel.rts.protocols.RTSystemProtocol
 import ca.jahed.rtpoet.rtmodel.sm.*
-import ca.jahed.rtpoet.rtmodel.types.RTPrimitiveType
 import ca.jahed.rtpoet.rtmodel.types.RTType
+import ca.jahed.rtpoet.rtmodel.types.primitivetype.RTPrimitiveType
 import ca.jahed.rtpoet.rtmodel.visitors.RTCachedVisitor
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EcoreFactory

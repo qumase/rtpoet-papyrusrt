@@ -1,17 +1,17 @@
 package ca.jahed.rtpoet.papyrusrt.rts
 
-import ca.jahed.rtpoet.papyrusrt.rts.classes.RTCapsuleId
-import ca.jahed.rtpoet.papyrusrt.rts.classes.RTMessage
-import ca.jahed.rtpoet.papyrusrt.rts.classes.RTTimerId
-import ca.jahed.rtpoet.papyrusrt.rts.classes.RTTimespec
-import ca.jahed.rtpoet.papyrusrt.rts.primitivetype.*
-import ca.jahed.rtpoet.papyrusrt.rts.protocols.*
+import ca.jahed.rtpoet.papyrusrt.rts.protocols.RTBaseCommProtocol
+import ca.jahed.rtpoet.papyrusrt.rts.protocols.RTMQTTProtocol
+import ca.jahed.rtpoet.papyrusrt.rts.protocols.RTTCPProtocol
 import ca.jahed.rtpoet.rtmodel.rts.RTLibrary
-import ca.jahed.rtpoet.rtmodel.rts.RTSystemClass
-import ca.jahed.rtpoet.rtmodel.rts.RTSystemProtocol
 import ca.jahed.rtpoet.rtmodel.rts.RTSystemSignal
-import ca.jahed.rtpoet.rtmodel.types.RTPrimitiveType
+import ca.jahed.rtpoet.rtmodel.rts.classes.*
+import ca.jahed.rtpoet.rtmodel.rts.protocols.RTFrameProtocol
+import ca.jahed.rtpoet.rtmodel.rts.protocols.RTLogProtocol
+import ca.jahed.rtpoet.rtmodel.rts.protocols.RTSystemProtocol
+import ca.jahed.rtpoet.rtmodel.rts.protocols.RTTimingProtocol
 import ca.jahed.rtpoet.rtmodel.types.RTType
+import ca.jahed.rtpoet.rtmodel.types.primitivetype.*
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
