@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'ca.jahed.rtpoet'
-version '1.0'
+version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -15,15 +15,15 @@ repositories {
         url = uri("https://maven.pkg.github.com/kjahed/rtpoet")
         credentials {
             username = "kjahed"
-            password = "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"
+            password = "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"
         }
     }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation 'ca.jahed.rtpoet:rtpoet:1.0-SNAPSHOT'
 
-    compile group: 'ca.jahed.rtpoet', name: 'rtpoet', version: '1.0'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
