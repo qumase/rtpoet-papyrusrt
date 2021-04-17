@@ -14,8 +14,8 @@ repositories {
         name = "GitHubPackages"
         url = uri("https://maven.pkg.github.com/kjahed/rtpoet")
         credentials {
-            username = "kjahed"
-            password = "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"
+            username = "rtpoet"
+            password = "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"
         }
     }
 }
