@@ -14,8 +14,8 @@ repositories {
         name = "GitHubPackages"
         url = uri("https://maven.pkg.github.com/kjahed/rtpoet")
         credentials {
-            username = "rtpoet"
-            password = "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"
+            username = project.findProperty("gpr.user") ?: System.getenv("GH_USER")
+            password = project.findProperty("gpr.key") ?: System.getenv("GH_TOKEN")
         }
     }
 }
