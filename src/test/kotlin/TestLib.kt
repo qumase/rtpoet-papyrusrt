@@ -2,6 +2,7 @@ import ca.jahed.rtpoet.papyrusrt.PapyrusRTReader
 import ca.jahed.rtpoet.papyrusrt.PapyrusRTWriter
 import ca.jahed.rtpoet.papyrusrt.rts.PapyrusRTLibrary
 import ca.jahed.rtpoet.papyrusrt.rts.SystemPorts
+import ca.jahed.rtpoet.papyrusrt.utils.PapyrusRTCodeGenerator
 import ca.jahed.rtpoet.rtmodel.*
 import ca.jahed.rtpoet.rtmodel.sm.RTPseudoState
 import ca.jahed.rtpoet.rtmodel.sm.RTState
@@ -47,6 +48,8 @@ class TestLib {
         val model2 = loadFileModel("output/PP_Basic.uml")
         val rtModel2 = PapyrusRTReader.read(model2)
         assertTrue(rtModel == rtModel2)
+
+        assertTrue(PapyrusRTCodeGenerator.generate(rtModel, "output"))
     }
 
     @Test
