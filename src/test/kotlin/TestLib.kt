@@ -10,9 +10,11 @@ import ca.jahed.rtpoet.rtmodel.sm.RTStateMachine
 import ca.jahed.rtpoet.rtmodel.sm.RTTransition
 import ca.jahed.rtpoet.rtmodel.types.primitivetype.RTInt
 import ca.jahed.rtpoet.utils.RTDeepCopier
+import ca.jahed.rtpoet.utils.RTEqualityHelper
 import ca.jahed.rtpoet.utils.RTModelValidator
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.papyrusrt.umlrt.profile.UMLRealTime.RTPort
 import org.eclipse.uml2.uml.resource.UMLResource
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -47,7 +49,7 @@ class TestLib {
 
         val model2 = loadFileModel("output/PP_Basic.uml")
         val rtModel2 = PapyrusRTReader.read(model2)
-        assertTrue(rtModel == rtModel2)
+        assertTrue(RTEqualityHelper.isEqual(rtModel, rtModel2))
 
         assertTrue(PapyrusRTCodeGenerator.generate(rtModel, "output"))
     }
@@ -60,7 +62,7 @@ class TestLib {
 
         val model2 = loadFileModel("output/ParcelRouter_v4.uml")
         val rtModel2 = PapyrusRTReader.read(model2)
-        assertTrue(rtModel == rtModel2)
+        assertTrue(RTEqualityHelper.isEqual(rtModel, rtModel2))
     }
 
     @Test
@@ -71,7 +73,7 @@ class TestLib {
 
         val model2 = loadFileModel("output/RootElement.uml")
         val rtModel2 = PapyrusRTReader.read(model2)
-        assertTrue(rtModel == rtModel2)
+        assertTrue(RTEqualityHelper.isEqual(rtModel, rtModel2))
     }
 
     @Test
@@ -82,7 +84,7 @@ class TestLib {
 
         val model2 = loadFileModel("output/BankATM.uml")
         val rtModel2 = PapyrusRTReader.read(model2)
-        assertTrue(rtModel == rtModel2)
+        assertTrue(RTEqualityHelper.isEqual(rtModel, rtModel2))
     }
 
     @Test
@@ -93,7 +95,7 @@ class TestLib {
 
         val model2 = loadFileModel("output/Safe.uml")
         val rtModel2 = PapyrusRTReader.read(model2)
-        assertTrue(rtModel == rtModel2)
+        assertTrue(RTEqualityHelper.isEqual(rtModel, rtModel2))
     }
 
     private fun pingerPonger(): RTModel {
@@ -189,6 +191,6 @@ class TestLib {
     internal fun TestEquality() {
         val model = pingerPonger()
         val copy = RTDeepCopier().copy(model) as RTModel
-        assertTrue(model == copy)
+        assertTrue(RTEqualityHelper.isEqual(model, copy))
     }
 }
