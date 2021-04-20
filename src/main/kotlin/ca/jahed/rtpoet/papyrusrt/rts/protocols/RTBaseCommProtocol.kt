@@ -8,8 +8,8 @@ object RTBaseCommProtocol : RTSystemProtocol("UMLRTBaseCommProtocol") {
     private object RTUnbound : RTSystemSignal("rtUnbound")
 
     init {
-        inOutSignals.add(RTSystemSignal("rtBound"))
-        inOutSignals.add(RTSystemSignal("rtUnbound"))
+        inOutSignals.add(RTBound)
+        inOutSignals.add(RTUnbound)
     }
 
     fun rtBound(): RTSystemSignal {

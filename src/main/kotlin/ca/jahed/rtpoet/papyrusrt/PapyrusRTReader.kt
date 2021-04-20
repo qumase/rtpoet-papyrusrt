@@ -1,6 +1,7 @@
 package ca.jahed.rtpoet.papyrusrt
 
 import ca.jahed.rtpoet.papyrusrt.rts.PapyrusRTLibrary
+import ca.jahed.rtpoet.papyrusrt.rts.protocols.RTBaseCommProtocol
 import ca.jahed.rtpoet.papyrusrt.utils.EMFUtils
 import ca.jahed.rtpoet.papyrusrt.utils.PapyrusRTUtils
 import ca.jahed.rtpoet.rtmodel.*
@@ -316,6 +317,8 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
             }
         }
 
+        builder.inOut(RTBaseCommProtocol.rtBound())
+        builder.inOut(RTBaseCommProtocol.rtUnbound())
         return builder.build()
     }
 
