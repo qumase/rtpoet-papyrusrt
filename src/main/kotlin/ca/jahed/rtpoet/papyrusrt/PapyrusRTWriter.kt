@@ -122,6 +122,7 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
         umlClass.name = klass.name
         klass.attributes.forEach { umlClass.ownedAttributes.add(visit(it) as Property) }
         klass.operations.forEach { umlClass.ownedOperations.add(visit(it) as Operation) }
+        umlClass.ownedOperations.forEach { umlClass.ownedBehaviors.add(it.methods[0]) }
 
         if (klass.properties != null) {
             val props = visit(klass.properties!!) as PassiveClassProperties
