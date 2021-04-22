@@ -14,7 +14,6 @@ import ca.jahed.rtpoet.utils.RTEqualityHelper
 import ca.jahed.rtpoet.utils.RTModelValidator
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.papyrusrt.umlrt.profile.UMLRealTime.RTPort
 import org.eclipse.uml2.uml.resource.UMLResource
 import org.junit.Assert.assertTrue
 import org.junit.Test
