@@ -242,7 +242,7 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
         umlProperty.type = visit(part.capsule) as Class
 
         umlProperty.aggregation = if (part.plugin) AggregationKind.SHARED_LITERAL else AggregationKind.COMPOSITE_LITERAL
-        umlProperty.lower = if (part.optional) 0 else part.replication
+        umlProperty.lower = if (part.optional || part.plugin) 0 else part.replication
 
         val umlrtCapsulePart = UMLRealTimeFactory.eINSTANCE.createCapsulePart()
         umlrtCapsulePart.base_Property = umlProperty
