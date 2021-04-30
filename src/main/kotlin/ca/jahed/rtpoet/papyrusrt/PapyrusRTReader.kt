@@ -230,6 +230,12 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
 
     private fun visitOperation(operation: Operation): RTOperation {
         val builder = RTOperation.builder(operation.name)
+        when (operation.visibility) {
+            VisibilityKind.PUBLIC_LITERAL -> builder.publicVisibility()
+            VisibilityKind.PRIVATE_LITERAL -> builder.privateVisibility()
+            else -> builder.protectedVisibility()
+        }
+
         operation.methods.forEach { builder.action(visit(it) as RTAction) }
         operation.ownedParameters.forEach {
             when (it.direction) {

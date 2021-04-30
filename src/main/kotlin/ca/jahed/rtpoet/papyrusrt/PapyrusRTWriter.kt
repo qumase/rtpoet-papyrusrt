@@ -358,6 +358,8 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
     override fun visitOperation(operation: RTOperation): Operation {
         val umlOperation = UMLFactory.eINSTANCE.createOperation()
         umlOperation.name = operation.name
+        umlOperation.visibility = VisibilityKind.get(operation.visibility.ordinal)
+
         operation.parameters.forEach { umlOperation.ownedParameters.add(visit(it) as Parameter) }
 
         if (operation.ret != null) {
