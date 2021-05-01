@@ -51,10 +51,12 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
         val umlModel = UMLFactory.eINSTANCE.createModel()
         umlModel.name = model.name
 
-        val topAnnotation = EcoreFactory.eINSTANCE.createEAnnotation()
-        topAnnotation.source = "UMLRT_Default_top"
-        topAnnotation.details.put("top_name", model.top.capsule.name)
-        umlModel.eAnnotations.add(topAnnotation)
+        if (model.top != null) {
+            val topAnnotation = EcoreFactory.eINSTANCE.createEAnnotation()
+            topAnnotation.source = "UMLRT_Default_top"
+            topAnnotation.details.put("top_name", model.top!!.capsule.name)
+            umlModel.eAnnotations.add(topAnnotation)
+        }
 
         val langAnnotation = EcoreFactory.eINSTANCE.createEAnnotation()
         langAnnotation.source = "http://www.eclipse.org/papyrus-rt/language/1.0.0"
