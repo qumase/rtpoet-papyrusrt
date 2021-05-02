@@ -30,12 +30,22 @@ class PapyrusRTCodeGenerator(
 
     companion object {
         @JvmStatic
-        fun generate(model: RTModel, outputPath: String = "code"): Boolean {
+        fun generate(model: RTModel): Boolean {
+            return PapyrusRTCodeGenerator().doGenerate(model, "code")
+        }
+
+        @JvmStatic
+        fun generate(model: RTModel, outputPath: String): Boolean {
             return PapyrusRTCodeGenerator().doGenerate(model, outputPath)
+        }
+
+        @JvmStatic
+        fun generate(model: RTModel, outputPath: String, timeout: Long): Boolean {
+            return PapyrusRTCodeGenerator().doGenerate(model, outputPath, timeout)
         }
     }
 
-    fun doGenerate(model: RTModel, outputPath: String = "code"): Boolean {
+    fun doGenerate(model: RTModel, outputPath: String = "code", timeout: Long = 0): Boolean {
         val outputDir = File(outputPath)
         val codeDir = File(outputDir, "cpp")
         codeDir.mkdirs()
@@ -43,22 +53,26 @@ class PapyrusRTCodeGenerator(
         if (!codeDir.exists())
             throw RuntimeException("Cannnot create output directory ${outputDir.absolutePath}")
 
-        val outputModel = File(outputDir, "model.uml")
+        val outputModel = File(codeDir, "${model.name}.uml")
         PapyrusRTWriter.write(outputModel.absolutePath, model)
 
-        return """
+        val result = """
             java -jar ${codegen} -p ${plugins} -o ${codeDir.absolutePath} ${outputModel.absolutePath}
-        """.trim().runCommand(outputDir)
+        """.trim().runCommand(outputDir, timeout)
+
+        outputModel.delete()
+        return result
     }
 
-    private fun String.runCommand(workingDir: File): Boolean {
+    private fun String.runCommand(workingDir: File, timeout: Long): Boolean {
         val pb = ProcessBuilder(*split(" ").toTypedArray())
             .directory(workingDir)
             .redirectOutput(ProcessBuilder.Redirect.INHERIT)
             .redirectError(ProcessBuilder.Redirect.INHERIT)
             .start()
-        return pb.waitFor(120, TimeUnit.MINUTES) && pb.exitValue() == 0
 
+        return if (timeout == 0.toLong()) pb.waitFor() == 0
+        else pb.waitFor(timeout, TimeUnit.SECONDS) && pb.exitValue() == 0
     }
 
     private fun extractWithZipInputStream(zipFile: InputStream, destination: File) {
