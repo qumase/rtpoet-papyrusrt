@@ -9,6 +9,7 @@ import ca.jahed.rtpoet.rtmodel.rts.protocols.RTSystemProtocol
 import ca.jahed.rtpoet.rtmodel.sm.*
 import ca.jahed.rtpoet.rtmodel.types.RTType
 import ca.jahed.rtpoet.rtmodel.types.primitivetype.RTPrimitiveType
+import ca.jahed.rtpoet.rtmodel.values.*
 import ca.jahed.rtpoet.rtmodel.visitors.RTCachedVisitor
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EcoreFactory
@@ -339,6 +340,7 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
         umlProperty.upper = attribute.replication
         umlProperty.lower = attribute.replication
         umlProperty.visibility = VisibilityKind.get(attribute.visibility.ordinal)
+        if (attribute.value != null) umlProperty.defaultValue = visit(attribute.value!!) as ValueSpecification
 
         if (attribute.properties != null) {
             val props = visit(attribute.properties!!) as AttributeProperties
@@ -406,6 +408,53 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
             is RTCapsule -> visit(type) as Type
             is RTClass -> visit(type) as Type
             else -> throw RuntimeException("Unexpected type class ${type.javaClass.simpleName}")
+        }
+    }
+
+    override fun visitValue(value: RTValue): ValueSpecification {
+        when (value) {
+            is RTLiteralBoolean -> {
+                val umlLiteralBoolean = UMLFactory.eINSTANCE.createLiteralBoolean()
+                umlLiteralBoolean.name = value.name
+                umlLiteralBoolean.isValue = value.value
+                return umlLiteralBoolean
+            }
+            is RTLiteralInteger -> {
+                val umlLiteralInteger = UMLFactory.eINSTANCE.createLiteralInteger()
+                umlLiteralInteger.name = value.name
+                umlLiteralInteger.value = value.value
+                return umlLiteralInteger
+            }
+            is RTLiteralReal -> {
+                val umlLiteralReal = UMLFactory.eINSTANCE.createLiteralReal()
+                umlLiteralReal.name = value.name
+                umlLiteralReal.value = value.value
+                return umlLiteralReal
+            }
+            is RTLiteralString -> {
+                val umlLiteralString = UMLFactory.eINSTANCE.createLiteralString()
+                umlLiteralString.name = value.name
+                umlLiteralString.value = value.value
+                return umlLiteralString
+            }
+            is RTUnlimitedNatural -> {
+                val umlUnlimited = UMLFactory.eINSTANCE.createLiteralUnlimitedNatural()
+                umlUnlimited.name = value.name
+                return umlUnlimited
+            }
+            is RTLiteralNull -> {
+                val umlLiteralNull = UMLFactory.eINSTANCE.createLiteralNull()
+                umlLiteralNull.name = value.name
+                return umlLiteralNull
+            }
+            is RTExpression -> {
+                val umlExpression = UMLFactory.eINSTANCE.createOpaqueExpression()
+                umlExpression.name = value.name
+                umlExpression.languages.add(value.value.language)
+                umlExpression.bodies.add(value.value.language)
+                return umlExpression
+            }
+            else -> throw RuntimeException("Unexpected value class ${value.javaClass.simpleName}")
         }
     }
 

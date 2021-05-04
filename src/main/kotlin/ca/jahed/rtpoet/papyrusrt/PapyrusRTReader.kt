@@ -7,6 +7,7 @@ import ca.jahed.rtpoet.rtmodel.*
 import ca.jahed.rtpoet.rtmodel.cppproperties.*
 import ca.jahed.rtpoet.rtmodel.sm.*
 import ca.jahed.rtpoet.rtmodel.types.RTType
+import ca.jahed.rtpoet.rtmodel.values.*
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EClassifier
 import org.eclipse.emf.ecore.EObject
@@ -82,6 +83,7 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
                 }
 
                 is Type -> visitType(eObj)
+                is ValueSpecification -> visitValueSpecification(eObj)
 
                 is ArtifactProperties -> visitArtifactProperties(eObj)
                 is AttributeProperties -> visitAttributeProperties(eObj)
@@ -223,6 +225,8 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
             else -> builder.protectedVisibility()
         }
 
+        if (property.defaultValue != null) builder.value(visit(property.defaultValue) as RTValue)
+
         val properties = EMFUtils.getReferencingObjectByType(resource.contents,
             RTCppPropertiesPackage.Literals.ATTRIBUTE_PROPERTIES, property)
         if (properties != null) builder.properties(visit(properties) as RTAttributeProperties)
@@ -299,6 +303,19 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
             is Class -> if (PapyrusRTUtils.isCapsule(type)) visit(type) as RTCapsule else visit(type) as RTClass
             is Collaboration -> visit(PapyrusRTUtils.getProtocol(type)!!.base_Package) as RTProtocol
             else -> PapyrusRTLibrary.getType(type.name)
+        }
+    }
+
+    private fun visitValueSpecification(value: ValueSpecification): Any {
+        return when (value) {
+            is LiteralBoolean -> RTLiteralBoolean(value.isValue)
+            is LiteralInteger -> RTLiteralInteger(value.value)
+            is LiteralString -> RTLiteralString(value.value)
+            is LiteralReal -> RTLiteralReal(value.value)
+            is LiteralNull -> RTLiteralNull
+            is LiteralUnlimitedNatural -> RTUnlimitedNatural
+            is OpaqueExpression -> RTExpression(visit(value) as RTAction)
+            else -> throw RuntimeException("Unknown ValueSpecification class ${value::class.java.simpleName}")
         }
     }
 
