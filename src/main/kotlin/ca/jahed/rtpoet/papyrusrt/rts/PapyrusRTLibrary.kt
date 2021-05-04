@@ -128,7 +128,15 @@ object PapyrusRTLibrary : RTLibrary {
     }
 
     override fun getProtocol(protocol: RTSystemProtocol): ProtocolContainer {
-        return protocols[protocol.name]!!
+        return when (protocol) {
+            is RTLogProtocol -> protocols["Log"]!!
+            is RTTimingProtocol -> protocols["Timing"]!!
+            is RTFrameProtocol -> protocols["Frame"]!!
+            is RTTCPProtocol -> protocols["TCP"]!!
+            is RTMQTTProtocol -> protocols["MQTT"]!!
+            is RTBaseCommProtocol -> protocols["UMLRTBaseCommProtocol"]!!
+            else -> throw RuntimeException("Unknown system protocol ${protocol.name}")
+        }
     }
 
     override fun getSystemSignal(event: RTSystemSignal): MessageEvent {
@@ -141,7 +149,13 @@ object PapyrusRTLibrary : RTLibrary {
     }
 
     override fun getSystemClass(klass: RTSystemClass): Class {
-        return classes[klass.name]!!
+        return when (klass) {
+            is RTCapsuleId -> classes["UMLRTCapsuleId"]!!
+            is RTMessage -> classes["UMLRTMessage"]!!
+            is RTTimerId -> classes["UMLRTTimerId"]!!
+            is RTTimespec -> classes["UMLRTTimespec"]!!
+            else -> throw RuntimeException("Unknown system class ${klass.name}")
+        }
     }
 
     override fun getProfile(name: String): Profile {
