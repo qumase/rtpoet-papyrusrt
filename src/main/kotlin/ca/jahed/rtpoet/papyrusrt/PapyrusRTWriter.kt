@@ -437,7 +437,7 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
                 umlLiteralString.value = value.value
                 return umlLiteralString
             }
-            is RTUnlimitedNatural -> {
+            is RTLiteralUnlimitedNatural -> {
                 val umlUnlimited = UMLFactory.eINSTANCE.createLiteralUnlimitedNatural()
                 umlUnlimited.name = value.name
                 return umlUnlimited

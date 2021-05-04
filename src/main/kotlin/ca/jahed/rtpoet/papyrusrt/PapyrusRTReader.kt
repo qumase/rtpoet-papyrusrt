@@ -313,7 +313,7 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
             is LiteralString -> RTLiteralString(value.value)
             is LiteralReal -> RTLiteralReal(value.value)
             is LiteralNull -> RTLiteralNull
-            is LiteralUnlimitedNatural -> RTUnlimitedNatural
+            is LiteralUnlimitedNatural -> RTLiteralUnlimitedNatural
             is OpaqueExpression -> RTExpression(visit(value) as RTAction)
             else -> throw RuntimeException("Unknown ValueSpecification class ${value::class.java.simpleName}")
         }
