@@ -451,7 +451,7 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
                 val umlExpression = UMLFactory.eINSTANCE.createOpaqueExpression()
                 umlExpression.name = value.name
                 umlExpression.languages.add(value.value.language)
-                umlExpression.bodies.add(value.value.language)
+                umlExpression.bodies.add(value.value.body)
                 return umlExpression
             }
             else -> throw RuntimeException("Unexpected value class ${value.javaClass.simpleName}")
