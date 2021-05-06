@@ -3,7 +3,7 @@ package ca.jahed.rtpoet.papyrusrt.utils
 import org.eclipse.papyrusrt.umlrt.profile.UMLRealTime.*
 import org.eclipse.uml2.uml.*
 
-object PapyrusRTUtils {
+internal object PapyrusRTUtils {
 
     fun getCapsule(klass: Class): Capsule? {
         return EMFUtils.getReferencingObjectByType(klass.eResource().contents,

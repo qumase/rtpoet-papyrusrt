@@ -3,7 +3,7 @@ package ca.jahed.rtpoet.papyrusrt.utils
 import org.eclipse.emf.ecore.EClassifier
 import org.eclipse.emf.ecore.EObject
 
-object EMFUtils {
+internal object EMFUtils {
     fun getObjectByType(
         objects: List<EObject>,
         type: EClassifier,

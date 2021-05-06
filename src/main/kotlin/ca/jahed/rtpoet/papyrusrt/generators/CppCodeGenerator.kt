@@ -1,4 +1,4 @@
-package ca.jahed.rtpoet.papyrusrt.utils
+package ca.jahed.rtpoet.papyrusrt.generators
 
 import ca.jahed.rtpoet.papyrusrt.PapyrusRTWriter
 import ca.jahed.rtpoet.rtmodel.RTModel
@@ -8,7 +8,7 @@ import java.io.FileOutputStream
 import java.io.InputStream
 import java.util.concurrent.TimeUnit
 
-class PapyrusRTCodeGenerator(
+class CppCodeGenerator(
     private var codegen: String? = null,
     private var plugins: String? = null,
 ) {
@@ -31,23 +31,23 @@ class PapyrusRTCodeGenerator(
     companion object {
         @JvmStatic
         fun generate(model: RTModel): Boolean {
-            return PapyrusRTCodeGenerator().doGenerate(model, "code")
+            return CppCodeGenerator().doGenerate(model, "code")
         }
 
         @JvmStatic
         fun generate(model: RTModel, outputPath: String): Boolean {
-            return PapyrusRTCodeGenerator().doGenerate(model, outputPath)
+            return CppCodeGenerator().doGenerate(model, outputPath)
         }
 
         @JvmStatic
         fun generate(model: RTModel, outputPath: String, timeout: Long): Boolean {
-            return PapyrusRTCodeGenerator().doGenerate(model, outputPath, timeout)
+            return CppCodeGenerator().doGenerate(model, outputPath, timeout)
         }
     }
 
     fun doGenerate(model: RTModel, outputPath: String = "code", timeout: Long = 0): Boolean {
         val outputDir = File(outputPath)
-        val codeDir = File(outputDir, "cpp")
+        val codeDir = File(outputDir, "${model.name}.cpp")
         codeDir.mkdirs()
 
         if (!codeDir.exists())
