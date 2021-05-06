@@ -563,10 +563,6 @@ switcherP.init(switchDel, pos).send();&#xD;
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_K51lgMMPEeaSH8bbL43htA" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_K5yiMMMPEeaSH8bbL43htA" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_LhdrYML9EeaSH8bbL43htA" name="parcels" type="_aEoEwML7EeaSH8bbL43htA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LhdrYcL9EeaSH8bbL43htA" value="0"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LhdrYsL9EeaSH8bbL43htA" value="*"/>
-      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Port" xmi:id="_P-w_UMMMEeaSH8bbL43htA" name="loggerP" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
         <type xmi:type="uml:Collaboration" href="pathmap://UMLRTRTSLIB/UMLRT-RTS.uml#_6kIb0IeXEeSVyrlWP4nYew"/>
       </ownedAttribute>

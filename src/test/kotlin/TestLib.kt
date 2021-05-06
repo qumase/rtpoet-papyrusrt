@@ -1,8 +1,9 @@
+import ca.jahed.rtpoet.generators.RTTextualModelGenerator
 import ca.jahed.rtpoet.papyrusrt.PapyrusRTReader
 import ca.jahed.rtpoet.papyrusrt.PapyrusRTWriter
+import ca.jahed.rtpoet.papyrusrt.generators.CppCodeGenerator
 import ca.jahed.rtpoet.papyrusrt.rts.PapyrusRTLibrary
 import ca.jahed.rtpoet.papyrusrt.rts.SystemPorts
-import ca.jahed.rtpoet.papyrusrt.utils.PapyrusRTCodeGenerator
 import ca.jahed.rtpoet.rtmodel.*
 import ca.jahed.rtpoet.rtmodel.sm.RTPseudoState
 import ca.jahed.rtpoet.rtmodel.sm.RTState
@@ -18,6 +19,7 @@ import org.eclipse.uml2.uml.resource.UMLResource
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.io.File
+import java.io.FileWriter
 
 class TestLib {
 
@@ -50,7 +52,7 @@ class TestLib {
         val rtModel2 = PapyrusRTReader.read(model2)
         assertTrue(RTEqualityHelper.isEqual(rtModel, rtModel2))
 
-        assertTrue(PapyrusRTCodeGenerator.generate(rtModel, "output"))
+        assertTrue(CppCodeGenerator.generate(rtModel, "output"))
     }
 
     @Test
@@ -106,17 +108,16 @@ class TestLib {
 
         val pinger =
             RTCapsule.builder("Pinger")
-                .attribute(RTAttribute.builder("count", RTInt))
+                .attribute(RTAttribute.builder("count", RTInt).value(10))
                 .port(RTPort.builder("ppPort", ppProtocol).external())
                 .port(SystemPorts.log())
                 .statemachine(
                     RTStateMachine.builder()
-                        .state(RTPseudoState.initial("initial"))
+                        .state(RTPseudoState.initial("init"))
                         .state(RTState.builder("playing"))
                         .transition(
-                            RTTransition.builder("initial", "playing")
+                            RTTransition.builder("init", "playing")
                                 .action("""
-                                    this->count = 1;
                                     ppPort.ping(count).send();
                                 """)
                         )
@@ -137,9 +138,9 @@ class TestLib {
                 .port(SystemPorts.log())
                 .statemachine(
                     RTStateMachine.builder()
-                        .state(RTPseudoState.initial("initial"))
+                        .state(RTPseudoState.initial("init"))
                         .state(RTState.builder("playing"))
-                        .transition(RTTransition.builder("initial", "playing"))
+                        .transition(RTTransition.builder("init", "playing"))
                         .transition(
                             RTTransition.builder("playing", "playing")
                                 .trigger("ppPort", "ping")
@@ -171,6 +172,15 @@ class TestLib {
     @Test
     internal fun TestBuilder() {
         saveModel(pingerPonger())
+    }
+
+    @Test
+    internal fun TestGenerator() {
+        val model = loadResourceModel("ParcelRouter.uml")
+        val rtModel = PapyrusRTReader.read(model)
+        val writer = FileWriter(File("output", "${rtModel.name}.rt"))
+        writer.write(RTTextualModelGenerator.generate(rtModel))
+        writer.close()
     }
 
     @Test
