@@ -1,5 +1,6 @@
 package ca.jahed.rtpoet.papyrusrt.rts
 
+import ca.jahed.rtpoet.papyrusrt.rts.primitivetype.*
 import ca.jahed.rtpoet.papyrusrt.rts.protocols.RTBaseCommProtocol
 import ca.jahed.rtpoet.papyrusrt.rts.protocols.RTMQTTProtocol
 import ca.jahed.rtpoet.papyrusrt.rts.protocols.RTTCPProtocol

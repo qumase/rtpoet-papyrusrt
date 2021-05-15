@@ -1,4 +1,6 @@
-package ca.jahed.rtpoet.rtmodel.types.primitivetype
+package ca.jahed.rtpoet.papyrusrt.rts.primitivetype
+
+import ca.jahed.rtpoet.rtmodel.types.primitivetype.RTPrimitiveType
 
 object RTBool : RTPrimitiveType("bool")
 object RTChar : RTPrimitiveType("char")
