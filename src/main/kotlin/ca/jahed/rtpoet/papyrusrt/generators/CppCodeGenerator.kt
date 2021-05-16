@@ -12,19 +12,22 @@ class CppCodeGenerator(
     private var codegen: String? = null,
     private var plugins: String? = null,
 ) {
-
     init {
         if (codegen == null || plugins == null) {
-            val codegenDir = File(System.getProperty("java.io.tmpdir"), javaClass.simpleName)
-            if (!codegenDir.exists()) {
+            val codegenDir = File(System.getProperty("java.io.tmpdir"), CppCodeGenerator::class.java.simpleName)
+            val codegenFile = File(codegenDir, "codegen/bin/umlrtgen.jar")
+            val pluginsDir = File(codegenDir, "codegen/plugins")
+
+            if (!codegenFile.exists() || pluginsDir.exists()) {
+                codegenDir.delete()
                 codegenDir.mkdirs()
 
-                val stream = javaClass.classLoader.getResourceAsStream("codegen.zip")
-                extractWithZipInputStream(stream, codegenDir)
+                val zip = this::class.java.classLoader.getResourceAsStream("codegen.zip")
+                extractWithZipInputStream(zip, codegenDir)
             }
 
-            codegen = File(codegenDir, "codegen/bin/umlrtgen.jar").absolutePath
-            plugins = File(codegenDir, "codegen/plugins").absolutePath
+            codegen = codegenFile.absolutePath
+            plugins = pluginsDir.absolutePath
         }
     }
 
