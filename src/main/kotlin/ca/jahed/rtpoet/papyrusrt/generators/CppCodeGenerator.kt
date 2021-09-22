@@ -1,12 +1,12 @@
 package ca.jahed.rtpoet.papyrusrt.generators
 
 import ca.jahed.rtpoet.papyrusrt.PapyrusRTWriter
+import ca.jahed.rtpoet.papyrusrt.utils.CmdUtils
 import ca.jahed.rtpoet.rtmodel.RTModel
 import net.lingala.zip4j.io.inputstream.ZipInputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
-import java.util.concurrent.TimeUnit
 
 class CppCodeGenerator(
     private var codegen: String? = null,
@@ -54,28 +54,21 @@ class CppCodeGenerator(
         codeDir.mkdirs()
 
         if (!codeDir.exists())
-            throw RuntimeException("Cannnot create output directory ${outputDir.absolutePath}")
+            throw RuntimeException("Cannnot create output directory ${codeDir.absolutePath}")
 
         val outputModel = File(codeDir, "${model.name}.uml")
         PapyrusRTWriter.write(outputModel.absolutePath, model)
 
         val result = """
             java -jar ${codegen} -p ${plugins} -o ${codeDir.absolutePath} ${outputModel.absolutePath}
-        """.trim().runCommand(outputDir, timeout)
+        """.trim().runCommand(timeout)
 
         outputModel.delete()
         return result
     }
 
-    private fun String.runCommand(workingDir: File, timeout: Long): Boolean {
-        val pb = ProcessBuilder(*split(" ").toTypedArray())
-            .directory(workingDir)
-            .redirectOutput(ProcessBuilder.Redirect.INHERIT)
-            .redirectError(ProcessBuilder.Redirect.INHERIT)
-            .start()
-
-        return if (timeout == 0.toLong()) pb.waitFor() == 0
-        else pb.waitFor(timeout, TimeUnit.SECONDS) && pb.exitValue() == 0
+    private fun String.runCommand(timeout: Long): Boolean {
+        return CmdUtils.exec(this, timeout) == 0
     }
 
     private fun extractWithZipInputStream(zipFile: InputStream, destination: File) {
