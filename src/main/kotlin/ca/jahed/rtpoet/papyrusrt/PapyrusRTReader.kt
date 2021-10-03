@@ -12,46 +12,62 @@ import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EClassifier
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.papyrusrt.codegen.cpp.profile.RTCppProperties.*
 import org.eclipse.papyrusrt.umlrt.profile.UMLRealTime.PortRegistrationType
 import org.eclipse.papyrusrt.umlrt.profile.UMLRealTime.RTMessageKind
 import org.eclipse.uml2.uml.*
 import java.io.File
 
-class PapyrusRTReader private constructor(private val resource: Resource) {
+class PapyrusRTReader constructor(private var resourceSet: ResourceSet) {
     private val content = mutableMapOf<EClassifier, MutableList<EObject>>()
     private val cache = mutableMapOf<EObject, Any>()
 
+    constructor() : this(PapyrusRTLibrary.createResourceSet())
+
     init {
-        resource.resourceSet.resources.forEach { res ->
+        resourceSet.resources.forEach { res ->
             res.allContents.forEach {
                 content.getOrPut(it.eClass(), { mutableListOf() }).add(it)
             }
         }
     }
 
-    private constructor(file: String) : this(PapyrusRTLibrary.createResourceSet()
-        .getResource(URI.createFileURI(File(file).absolutePath), true))
-
     companion object {
         @JvmStatic
         fun read(file: String): RTModel {
-            return PapyrusRTReader(file).read()
+            return PapyrusRTReader().readModel(file)
         }
 
         @JvmStatic
         fun read(resource: Resource): RTModel {
-            return PapyrusRTReader(resource).read()
+            return PapyrusRTReader(resource.resourceSet).readModel(resource)
         }
     }
 
-    private fun read(): RTModel {
+    fun readModel(file: String): RTModel {
+        return read(resourceSet.getResource(URI.createFileURI(File(file).absolutePath), true))
+    }
+
+    fun readModel(resource: Resource): RTModel {
+        if (resource.resourceSet != resourceSet)
+            throw RuntimeException("Resource ${resource.uri} not in resource set")
+
+        val imports = mutableListOf<RTModel>()
+        content[UMLPackage.Literals.MODEL]
+            ?.filter { it.eResource().uri.isFile && !it.eResource().equals(resource) }
+            ?.forEach {
+                imports.add(visit(it) as RTModel)
+            }
+
         val model = EMFUtils.getObjectByType(resource.contents, UMLPackage.Literals.MODEL) as Model?
-        return visit(model!!) as RTModel
+        val rtModel = visit(model!!) as RTModel
+        rtModel.imports.addAll(imports)
+        return rtModel
     }
 
     private fun visit(eObj: EObject): Any {
-        return cache.getOrPut(eObj, {
+        return cache.getOrPut(eObj) {
             when (eObj) {
                 is Model -> visitModel(eObj)
                 is Artifact -> visitArtifact(eObj)
@@ -96,7 +112,7 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
 
                 else -> throw RuntimeException("Unexpected element type ${eObj.eClass().name}")
             }
-        })
+        }
     }
 
     private fun visitModel(model: Model): RTModel {
@@ -149,8 +165,10 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
             builder.statemachine(visit(it) as RTStateMachine)
         }
 
-        val properties = EMFUtils.getReferencingObjectByType(resource.contents,
-            RTCppPropertiesPackage.Literals.CAPSULE_PROPERTIES, capsule)
+        val properties = EMFUtils.getReferencingObjectByType(
+            capsule.eResource().contents,
+            RTCppPropertiesPackage.Literals.CAPSULE_PROPERTIES, capsule
+        )
         if (properties != null) builder.properties(visit(properties) as RTCapsuleProperties)
 
         return builder.build()
@@ -177,8 +195,10 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
         klass.ownedAttributes.forEach { builder.attribute(visit(it) as RTAttribute) }
         klass.ownedOperations.forEach { builder.operation(visit(it) as RTOperation) }
 
-        val properties = EMFUtils.getReferencingObjectByType(resource.contents,
-            RTCppPropertiesPackage.Literals.CLASS_PROPERTIES, klass)
+        val properties = EMFUtils.getReferencingObjectByType(
+            klass.eResource().contents,
+            RTCppPropertiesPackage.Literals.CLASS_PROPERTIES, klass
+        )
         if (properties != null) builder.properties(visit(properties) as RTClassProperties)
 
         return builder.build()
@@ -186,8 +206,10 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
 
     private fun visitArtifact(artifact: Artifact): RTArtifact {
         val builder = RTArtifact.builder(artifact.name).fileName(artifact.fileName)
-        val properties = EMFUtils.getReferencingObjectByType(resource.contents,
-            RTCppPropertiesPackage.Literals.ARTIFACT_PROPERTIES, artifact)
+        val properties = EMFUtils.getReferencingObjectByType(
+            artifact.eResource().contents,
+            RTCppPropertiesPackage.Literals.ARTIFACT_PROPERTIES, artifact
+        )
         if (properties != null) builder.properties(visit(properties) as RTArtifactProperties)
         return builder.build()
     }
@@ -196,8 +218,10 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
         val builder = RTEnumeration.builder(enumeration.name)
         enumeration.ownedLiterals.forEach { builder.literal(it.name) }
 
-        val properties = EMFUtils.getReferencingObjectByType(resource.contents,
-            RTCppPropertiesPackage.Literals.ENUMERATION_PROPERTIES, enumeration)
+        val properties = EMFUtils.getReferencingObjectByType(
+            enumeration.eResource().contents,
+            RTCppPropertiesPackage.Literals.ENUMERATION_PROPERTIES, enumeration
+        )
         if (properties != null) builder.properties(visit(properties) as RTEnumerationProperties)
 
         return builder.build()
@@ -227,8 +251,10 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
 
         if (property.defaultValue != null) builder.value(visit(property.defaultValue) as RTValue)
 
-        val properties = EMFUtils.getReferencingObjectByType(resource.contents,
-            RTCppPropertiesPackage.Literals.ATTRIBUTE_PROPERTIES, property)
+        val properties = EMFUtils.getReferencingObjectByType(
+            property.eResource().contents,
+            RTCppPropertiesPackage.Literals.ATTRIBUTE_PROPERTIES, property
+        )
         if (properties != null) builder.properties(visit(properties) as RTAttributeProperties)
 
         return builder.build()
@@ -250,8 +276,10 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
             }
         }
 
-        val properties = EMFUtils.getReferencingObjectByType(resource.contents,
-            RTCppPropertiesPackage.Literals.OPERATION_PROPERTIES, operation)
+        val properties = EMFUtils.getReferencingObjectByType(
+            operation.eResource().contents,
+            RTCppPropertiesPackage.Literals.OPERATION_PROPERTIES, operation
+        )
         if (properties != null) builder.properties(visit(properties) as RTOperationProperties)
 
         return builder.build()
@@ -260,8 +288,10 @@ class PapyrusRTReader private constructor(private val resource: Resource) {
     private fun visitParameter(parameter: Parameter): RTParameter {
         val builder = RTParameter.builder(parameter.name, visit(parameter.type) as RTType)
             .replication(parameter.upper)
-        val properties = EMFUtils.getReferencingObjectByType(resource.contents,
-            RTCppPropertiesPackage.Literals.PARAMETER_PROPERTIES, parameter)
+        val properties = EMFUtils.getReferencingObjectByType(
+            parameter.eResource().contents,
+            RTCppPropertiesPackage.Literals.PARAMETER_PROPERTIES, parameter
+        )
         if (properties != null) builder.properties(visit(properties) as RTParameterProperties)
         return builder.build()
     }

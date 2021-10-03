@@ -49,21 +49,17 @@ class CppCodeGenerator(
     }
 
     fun doGenerate(model: RTModel, outputPath: String = "code", timeout: Long = 0): Boolean {
-        val outputDir = File(outputPath)
-        val codeDir = File(outputDir, "${model.name}.cpp")
+        val codeDir = File(outputPath)
         codeDir.mkdirs()
 
         if (!codeDir.exists())
             throw RuntimeException("Cannnot create output directory ${codeDir.absolutePath}")
 
-        val outputModel = File(codeDir, "${model.name}.uml")
-        PapyrusRTWriter.write(outputModel.absolutePath, model)
+        val resource = PapyrusRTWriter.writeAll(codeDir.absolutePath, model)
 
         val result = """
-            java -jar ${codegen} -p ${plugins} -o ${codeDir.absolutePath} ${outputModel.absolutePath}
+            java -jar ${codegen} -p ${plugins} -o ${codeDir.absolutePath} ${resource.uri.toString().substring(5)}
         """.trim().runCommand(timeout)
-
-        outputModel.delete()
         return result
     }
 
