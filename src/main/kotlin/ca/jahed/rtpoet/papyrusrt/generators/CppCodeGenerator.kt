@@ -12,18 +12,19 @@ class CppCodeGenerator(
     private var codegen: String? = null,
     private var plugins: String? = null,
 ) {
+    private val tempDir = File(System.getProperty("java.io.tmpdir"), "ca.jahed.rtpoet.papyrusrt")
+
     init {
         if (codegen == null || plugins == null) {
-            val codegenDir = File(System.getProperty("java.io.tmpdir"), CppCodeGenerator::class.java.simpleName)
-            val codegenFile = File(codegenDir, "codegen/bin/umlrtgen.jar")
-            val pluginsDir = File(codegenDir, "codegen/plugins")
+            val codegenDir = File(tempDir, "codegen")
+            val codegenFile = File(codegenDir, "bin" + File.separator + "umlrtgen.jar")
+            val pluginsDir = File(codegenDir, "plugins")
 
-            if (!codegenFile.exists() || pluginsDir.exists()) {
+            if (!codegenFile.exists() || !pluginsDir.exists()) {
                 codegenDir.delete()
-                codegenDir.mkdirs()
 
                 val zip = this::class.java.classLoader.getResourceAsStream("codegen.zip")
-                extractWithZipInputStream(zip, codegenDir)
+                extractWithZipInputStream(zip, tempDir)
             }
 
             codegen = codegenFile.absolutePath
@@ -49,21 +50,23 @@ class CppCodeGenerator(
     }
 
     fun doGenerate(model: RTModel, outputPath: String = "code", timeout: Long = 0): Boolean {
-        val outputDir = File(outputPath)
-        val codeDir = File(outputDir, "${model.name}.cpp")
+        val codeDir = File(outputPath)
         codeDir.mkdirs()
 
         if (!codeDir.exists())
-            throw RuntimeException("Cannnot create output directory ${codeDir.absolutePath}")
+            throw RuntimeException("Cannot create output directory ${codeDir.absolutePath}")
 
-        val outputModel = File(codeDir, "${model.name}.uml")
-        PapyrusRTWriter.write(outputModel.absolutePath, model)
+        val umlTmpDir = File(tempDir, "uml")
+        umlTmpDir.mkdirs()
+
+        if (!umlTmpDir.exists())
+            throw RuntimeException("Cannot create temp directory ${umlTmpDir.absolutePath}")
+
+        val resource = PapyrusRTWriter.writeAll(umlTmpDir.absolutePath, model)
 
         val result = """
-            java -jar ${codegen} -p ${plugins} -o ${codeDir.absolutePath} ${outputModel.absolutePath}
+            java -jar ${codegen} -p ${plugins} -o ${codeDir.absolutePath} ${resource.uri.toString().substring(5)}
         """.trim().runCommand(timeout)
-
-        outputModel.delete()
         return result
     }
 

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:UMLRealTime="http://www.eclipse.org/papyrus/umlrt" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="__2QGACuGEeyLr6Py-kMbAw" name="Runner">
+    <eAnnotations xmi:id="__2QGASuGEeyLr6Py-kMbAw" source="UMLRT_Default_top">
+      <details xmi:id="__2QGAiuGEeyLr6Py-kMbAw" key="top_name" value="Top"/>
+    </eAnnotations>
+    <eAnnotations xmi:id="__2QGAyuGEeyLr6Py-kMbAw" source="http://www.eclipse.org/papyrus-rt/language/1.0.0">
+      <details xmi:id="__2QGBCuGEeyLr6Py-kMbAw" key="language" value="umlrt-cpp"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Class" xmi:id="__2QGBSuGEeyLr6Py-kMbAw" name="Top">
+      <ownedAttribute xmi:id="__2QGBiuGEeyLr6Py-kMbAw" name="pinger" aggregation="composite">
+        <type xmi:type="uml:Class" href="PingerPonger.uml#__2IKMyuGEeyLr6Py-kMbAw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__2QGByuGEeyLr6Py-kMbAw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__2QGCCuGEeyLr6Py-kMbAw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="__2QGCSuGEeyLr6Py-kMbAw" name="ponger" aggregation="composite">
+        <type xmi:type="uml:Class" href="PingerPonger.uml#__2IKQyuGEeyLr6Py-kMbAw"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__2QGCiuGEeyLr6Py-kMbAw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__2QGCyuGEeyLr6Py-kMbAw" value="1"/>
+      </ownedAttribute>
+      <ownedConnector xmi:id="__2QGDCuGEeyLr6Py-kMbAw" name="YMKBgzOM">
+        <end xmi:id="__2QGDSuGEeyLr6Py-kMbAw" partWithPort="__2QGCSuGEeyLr6Py-kMbAw">
+          <role xmi:type="uml:Port" href="PingerPonger.uml#__2IKRCuGEeyLr6Py-kMbAw"/>
+        </end>
+        <end xmi:id="__2QGDiuGEeyLr6Py-kMbAw" partWithPort="__2QGBiuGEeyLr6Py-kMbAw">
+          <role xmi:type="uml:Port" href="PingerPonger.uml#__2IKNCuGEeyLr6Py-kMbAw"/>
+        </end>
+      </ownedConnector>
+    </packagedElement>
+    <profileApplication xmi:id="__2QGDyuGEeyLr6Py-kMbAw">
+      <eAnnotations xmi:id="__2QGECuGEeyLr6Py-kMbAw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/umlrt#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_RT_PROFILE/uml-rt.profile.uml#_1h74oEeVEeO0lv5O1DTHOQ"/>
+    </profileApplication>
+    <profileApplication xmi:id="__2QGESuGEeyLr6Py-kMbAw">
+      <eAnnotations xmi:id="__2QGEiuGEeyLr6Py-kMbAw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/umlrt/statemachine#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_RT_PROFILE/UMLRealTimeSM-addendum.profile.uml#_KLcn0FDtEeOA4ecmvfqvaw"/>
+    </profileApplication>
+    <profileApplication xmi:id="__2QGEyuGEeyLr6Py-kMbAw">
+      <eAnnotations xmi:id="__2QGFCuGEeyLr6Py-kMbAw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/umlrt/cppproperties#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UMLRT_CPP/RTCppProperties.profile.uml#_vl5LALs8EeSTjNEQkASznQ"/>
+    </profileApplication>
+  </uml:Model>
+  <UMLRealTime:CapsulePart xmi:id="__2QGFSuGEeyLr6Py-kMbAw" base_Property="__2QGBiuGEeyLr6Py-kMbAw"/>
+  <UMLRealTime:CapsulePart xmi:id="__2QGFiuGEeyLr6Py-kMbAw" base_Property="__2QGCSuGEeyLr6Py-kMbAw"/>
+  <UMLRealTime:RTConnector xmi:id="__2QGFyuGEeyLr6Py-kMbAw" base_Connector="__2QGDCuGEeyLr6Py-kMbAw"/>
+  <UMLRealTime:Capsule xmi:id="__2QGGCuGEeyLr6Py-kMbAw" base_Class="__2QGBSuGEeyLr6Py-kMbAw"/>
+</xmi:XMI>

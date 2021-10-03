@@ -12,8 +12,10 @@ import ca.jahed.rtpoet.rtmodel.types.primitivetype.RTPrimitiveType
 import ca.jahed.rtpoet.rtmodel.values.*
 import ca.jahed.rtpoet.rtmodel.visitors.RTCachedVisitor
 import org.eclipse.emf.common.util.URI
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EcoreFactory
 import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.papyrusrt.codegen.cpp.profile.RTCppProperties.*
 import org.eclipse.papyrusrt.umlrt.profile.UMLRealTime.PortRegistrationType
 import org.eclipse.papyrusrt.umlrt.profile.UMLRealTime.RTMessageKind
@@ -22,30 +24,72 @@ import org.eclipse.papyrusrt.umlrt.profile.statemachine.UMLRTStateMachines.UMLRT
 import org.eclipse.uml2.uml.*
 import java.io.File
 
-class PapyrusRTWriter private constructor(private val resource: Resource) : RTCachedVisitor() {
+class PapyrusRTWriter constructor(private val resourceSet: ResourceSet) : RTCachedVisitor() {
+    private val contents = mutableListOf<EObject>()
 
-    private constructor(file: String) : this(PapyrusRTLibrary.createResourceSet()
-        .createResource(URI.createFileURI(File(file).absolutePath)))
+    constructor() : this(PapyrusRTLibrary.createResourceSet())
 
     companion object {
         @JvmStatic
-        fun write(file: String, model: RTModel) {
-            PapyrusRTWriter(file).write(model, true)
+        fun write(file: String, model: RTModel): Resource {
+            return PapyrusRTWriter().writeModel(model, file, true)
         }
 
         @JvmStatic
-        fun write(resource: Resource, model: RTModel) {
-            PapyrusRTWriter(resource).write(model)
+        fun write(resource: Resource, model: RTModel): Resource {
+            return PapyrusRTWriter(resource.resourceSet).writeModel(model, resource, true)
+        }
+
+        @JvmStatic
+        fun writeAll(outputDir: String, model: RTModel): Resource {
+            val dir = File(outputDir)
+            dir.mkdirs()
+            return PapyrusRTWriter().writeAll(model, dir, true)
         }
     }
 
-    private fun write(model: RTModel, save: Boolean = false) {
+    fun writeModel(model: RTModel, file: String, save: Boolean = false): Resource {
+        return writeModel(
+            model, resourceSet
+                .createResource(URI.createFileURI(File(file).absolutePath)), save
+        )
+    }
+
+    fun writeModel(model: RTModel, resource: Resource, save: Boolean = false): Resource {
+        if (resource.resourceSet != resourceSet)
+            throw RuntimeException("Resource ${resource.uri} not in resource set")
+
+        contents.clear()
         val umlModel = visit(model) as Model
         resource.contents.add(umlModel)
+        resource.contents.addAll(contents)
 
         if (save) {
             resource.save(null)
         }
+
+        return resource
+    }
+
+    fun writeAll(model: RTModel, outputDir: File, save: Boolean = false): Resource {
+        val resources = generateModel(model, outputDir)
+        if (save) resources.forEach { it.save(null) }
+        return resources.last()
+    }
+
+    private fun generateModel(model: RTModel, outputDir: File): List<Resource> {
+        val resources = mutableListOf<Resource>()
+        model.imports.forEach {
+            resources.addAll(generateModel(it, outputDir))
+        }
+
+        val umlFile = File(outputDir, "${model.name}.uml")
+        umlFile.delete()
+
+        val resource = resourceSet.createResource(URI.createFileURI(umlFile.absolutePath))
+        resources.add(resource)
+        writeModel(model, resource, false)
+        return resources
     }
 
     override fun visitModel(model: RTModel): Model {
@@ -108,12 +152,12 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
         if (capsule.properties != null) {
             val props = visit(capsule.properties!!) as CapsuleProperties
             props.base_Class = umlClass
-            resource.contents.add(props)
+            contents.add(props)
         }
 
         val umlrtCapsule = UMLRealTimeFactory.eINSTANCE.createCapsule()
         umlrtCapsule.base_Class = umlClass
-        resource.contents.add(umlrtCapsule)
+        contents.add(umlrtCapsule)
         return umlClass
     }
 
@@ -130,7 +174,7 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
         if (klass.properties != null) {
             val props = visit(klass.properties!!) as PassiveClassProperties
             props.base_Class = umlClass
-            resource.contents.add(props)
+            contents.add(props)
         }
 
         return umlClass
@@ -196,26 +240,26 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
 
         val rtp = UMLRealTimeFactory.eINSTANCE.createProtocol()
         rtp.base_Collaboration = umlCollaboration
-        resource.contents.add(rtp)
+        contents.add(rtp)
 
         val rtm1 = UMLRealTimeFactory.eINSTANCE.createRTMessageSet()
         rtm1.rtMsgKind = RTMessageKind.IN
         rtm1.base_Interface = i1
-        resource.contents.add(rtm1)
+        contents.add(rtm1)
 
         val rtm2 = UMLRealTimeFactory.eINSTANCE.createRTMessageSet()
         rtm2.rtMsgKind = RTMessageKind.OUT
         rtm2.base_Interface = i2
-        resource.contents.add(rtm2)
+        contents.add(rtm2)
 
         val rtm3 = UMLRealTimeFactory.eINSTANCE.createRTMessageSet()
         rtm3.rtMsgKind = RTMessageKind.IN_OUT
         rtm3.base_Interface = i3
-        resource.contents.add(rtm3)
+        contents.add(rtm3)
 
         val umlrtProtocolContainer = UMLRealTimeFactory.eINSTANCE.createProtocolContainer()
         umlrtProtocolContainer.base_Package = umlPackage
-        resource.contents.add(umlrtProtocolContainer)
+        contents.add(umlrtProtocolContainer)
         return umlPackage
     }
 
@@ -232,7 +276,7 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
         if (enumeration.properties != null) {
             val props = visit(enumeration.properties!!) as EnumerationProperties
             props.base_Enumeration = umlEnumeration
-            resource.contents.add(props)
+            contents.add(props)
         }
 
         return umlEnumeration
@@ -249,7 +293,7 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
 
         val umlrtCapsulePart = UMLRealTimeFactory.eINSTANCE.createCapsulePart()
         umlrtCapsulePart.base_Property = umlProperty
-        resource.contents.add(umlrtCapsulePart)
+        contents.add(umlrtCapsulePart)
         return umlProperty
     }
 
@@ -271,7 +315,7 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
         umlrtPort.setIsNotification(port.notification)
         umlrtPort.registration = PortRegistrationType.get(port.registrationType.ordinal)
         umlrtPort.registrationOverride = port.registrationOverride
-        resource.contents.add(umlrtPort)
+        contents.add(umlrtPort)
         return umlPort
     }
 
@@ -296,7 +340,7 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
 
         val umlrtConnector = UMLRealTimeFactory.eINSTANCE.createRTConnector()
         umlrtConnector.base_Connector = umlConnector
-        resource.contents.add(umlrtConnector)
+        contents.add(umlrtConnector)
         return umlConnector
     }
 
@@ -327,7 +371,7 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
         if (artifact.properties != null) {
             val props = visit(artifact.properties!!) as ArtifactProperties
             props.base_Artifact = umlArtifact
-            resource.contents.add(props)
+            contents.add(props)
         }
 
         return umlArtifact
@@ -345,7 +389,7 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
         if (attribute.properties != null) {
             val props = visit(attribute.properties!!) as AttributeProperties
             props.base_Property = umlProperty
-            resource.contents.add(props)
+            contents.add(props)
         }
 
         return umlProperty
@@ -378,7 +422,7 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
         if (operation.properties != null) {
             val props = visit(operation.properties!!) as OperationProperties
             props.base_Operation = umlOperation
-            resource.contents.add(props)
+            contents.add(props)
         }
 
         return umlOperation
@@ -395,7 +439,7 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
         if (param.properties != null) {
             val props = visit(param.properties!!) as ParameterProperties
             props.base_Parameter = umlParameter
-            resource.contents.add(props)
+            contents.add(props)
         }
 
         return umlParameter
@@ -469,11 +513,11 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
 
         val umlrtRegion = UMLRTStateMachinesFactory.eINSTANCE.createRTRegion()
         umlrtRegion.base_Region = umlRegion
-        resource.contents.add(umlrtRegion)
+        contents.add(umlrtRegion)
 
         val umlrtStateMachine = UMLRTStateMachinesFactory.eINSTANCE.createRTStateMachine()
         umlrtStateMachine.base_StateMachine = umlStateMachine
-        resource.contents.add(umlrtStateMachine)
+        contents.add(umlrtStateMachine)
         return umlStateMachine
     }
 
@@ -491,7 +535,7 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
 
         val umlrtRegion = UMLRTStateMachinesFactory.eINSTANCE.createRTRegion()
         umlrtRegion.base_Region = umlRegion
-        resource.contents.add(umlrtRegion)
+        contents.add(umlrtRegion)
 
         state.states().filter {
             it is RTPseudoState
@@ -500,7 +544,7 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
             .forEach { umlState.connectionPoints.add(visit(it) as Pseudostate) }
 
         val umlrtState = UMLRTStateMachinesFactory.eINSTANCE.createRTState()
-        resource.contents.add(umlrtState)
+        contents.add(umlrtState)
         umlrtState.base_State = umlState
         return umlState
     }
@@ -521,7 +565,7 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
 
         val umlrtState = UMLRTStateMachinesFactory.eINSTANCE.createRTPseudostate()
         umlrtState.base_Pseudostate = umlState
-        resource.contents.add(umlrtState)
+        contents.add(umlrtState)
         return umlState
     }
 
@@ -534,7 +578,7 @@ class PapyrusRTWriter private constructor(private val resource: Resource) : RTCa
 
         val umlrtState = UMLRTStateMachinesFactory.eINSTANCE.createRTState()
         umlrtState.base_State = umlState
-        resource.contents.add(umlrtState)
+        contents.add(umlrtState)
         return umlState
     }
 

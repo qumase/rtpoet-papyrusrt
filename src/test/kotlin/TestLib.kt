@@ -15,7 +15,6 @@ import ca.jahed.rtpoet.utils.RTEqualityHelper
 import ca.jahed.rtpoet.utils.RTModelValidator
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.uml2.uml.resource.UMLResource
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.io.File
@@ -33,22 +32,31 @@ class TestLib {
     }
 
     private fun saveModel(model: RTModel) {
-        File("output").mkdirs()
-
-        val resource = PapyrusRTLibrary.createResourceSet().createResource(
-            URI.createFileURI(File("output", "${model.name}.uml").absolutePath)) as UMLResource
-
-        PapyrusRTWriter.write(resource, model)
-        resource.save(null)
+        val outputDir = File("output", "${model.name}.uml")
+        outputDir.mkdirs()
+        PapyrusRTWriter.writeAll(outputDir.absolutePath, model)
     }
 
     @Test
-    internal fun TestPingerPonger() {
+    fun TestPingerPonger() {
         val model = loadResourceModel("PP_Basic.uml")
         val rtModel = PapyrusRTReader.read(model)
         saveModel(rtModel)
 
-        val model2 = loadFileModel("output/PP_Basic.uml")
+        val model2 = loadFileModel("output/PP_Basic.uml/PP_Basic.uml")
+        val rtModel2 = PapyrusRTReader.read(model2)
+        assertTrue(RTEqualityHelper.isEqual(rtModel, rtModel2))
+
+        assertTrue(CppCodeGenerator.generate(rtModel, "output"))
+    }
+
+    @Test
+    fun TestMulti() {
+        val model = loadResourceModel("Runner.uml")
+        val rtModel = PapyrusRTReader.read(model)
+        saveModel(rtModel)
+
+        val model2 = loadFileModel("output/Runner.uml/Runner.uml")
         val rtModel2 = PapyrusRTReader.read(model2)
         assertTrue(RTEqualityHelper.isEqual(rtModel, rtModel2))
 
@@ -61,7 +69,7 @@ class TestLib {
         val rtModel = PapyrusRTReader.read(model)
         saveModel(rtModel)
 
-        val model2 = loadFileModel("output/ParcelRouter_v4.uml")
+        val model2 = loadFileModel("output/ParcelRouter_v4.uml/ParcelRouter_v4.uml")
         val rtModel2 = PapyrusRTReader.read(model2)
         assertTrue(RTEqualityHelper.isEqual(rtModel, rtModel2))
     }
@@ -72,7 +80,7 @@ class TestLib {
         val rtModel = PapyrusRTReader.read(model)
         saveModel(rtModel)
 
-        val model2 = loadFileModel("output/RootElement.uml")
+        val model2 = loadFileModel("output/RootElement.uml/RootElement.uml")
         val rtModel2 = PapyrusRTReader.read(model2)
         assertTrue(RTEqualityHelper.isEqual(rtModel, rtModel2))
     }
@@ -83,7 +91,7 @@ class TestLib {
         val rtModel = PapyrusRTReader.read(model)
         saveModel(rtModel)
 
-        val model2 = loadFileModel("output/BankATM.uml")
+        val model2 = loadFileModel("output/BankATM.uml/BankATM.uml")
         val rtModel2 = PapyrusRTReader.read(model2)
         assertTrue(RTEqualityHelper.isEqual(rtModel, rtModel2))
     }
@@ -94,7 +102,7 @@ class TestLib {
         val rtModel = PapyrusRTReader.read(model)
         saveModel(rtModel)
 
-        val model2 = loadFileModel("output/Safe.uml")
+        val model2 = loadFileModel("output/Safe.uml/Safe.uml")
         val rtModel2 = PapyrusRTReader.read(model2)
         assertTrue(RTEqualityHelper.isEqual(rtModel, rtModel2))
     }
