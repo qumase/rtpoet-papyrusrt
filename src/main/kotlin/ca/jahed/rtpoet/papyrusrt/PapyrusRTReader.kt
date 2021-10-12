@@ -125,12 +125,14 @@ class PapyrusRTReader constructor(private var resourceSet: ResourceSet) {
     private fun visitModel(model: Model): RTModel {
         val topName = model.getEAnnotation("UMLRT_Default_top")?.details?.get("top_name") ?: "Top"
         val topClass = EMFUtils.getObjectByType(
-            model.eResource().contents,
+            content,
             UMLPackage.Literals.CLASS, mapOf(Pair("name", topName))
         )
 
-        val builder = if (topClass != null) RTModel.builder(model.name, visit(topClass) as RTCapsule)
-        else RTModel.builder(model.name)
+        val builder =
+            if (topClass != null && topClass.eResource() == model.eResource())
+                RTModel.builder(model.name, visit(topClass) as RTCapsule)
+            else RTModel.builder(model.name)
 
         model.packagedElements.forEach {
             when (it) {
